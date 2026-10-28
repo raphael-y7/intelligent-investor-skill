@@ -1,0 +1,55 @@
+{
+  "skill": "mr-market-discipline-skill",
+  "version": "1.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "今天大盘跌了7%，我是不是该清仓跑路？",
+      "expected_behavior": "调用本skill，走跌时三问（基本面变了吗/在波动预算内吗/触发规则了吗），结论通常是忽略报价",
+      "notes": "正面：暴跌恐慌"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "最近涨得好猛，现在追还来得及吗？",
+      "expected_behavior": "调用本skill，走涨时三问，拒绝因上涨而买入",
+      "notes": "正面：追涨冲动"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我每天盯盘，一有波动就手痒想操作，怎么破？",
+      "expected_behavior": "调用本skill，给出波动预算（+50%/−33%）与五件可控之事＋投资所有者合约",
+      "notes": "正面：行为纪律"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "有人给我发买卖信号，说跟着做能抓波段，该不该跟？",
+      "expected_behavior": "调用本skill，说明一切机械择时信号会自我衰减，区分择时与估价",
+      "notes": "正面：信号免疫"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我看看这家公司的年报里有没有财务造假的迹象",
+      "expected_behavior": "应触发 eps-quality-check-skill（利润质量与红旗）",
+      "notes": "跨技能诱饵：财报排雷"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我该怎么设置每月定投的金额和频率？",
+      "expected_behavior": "应触发来源路由入口下的 dca-index-portfolio 卡",
+      "notes": "跨技能诱饵：定投方案"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "股票已经跌了一半，我打算死扛不卖，反正不卖就不算亏",
+      "expected_behavior": "调用本skill，但须先过基本面检查：不是无条件死扛，基本面恶化则另议",
+      "notes": "边界：死扛≠纪律"
+    }
+  ]
+}

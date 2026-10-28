@@ -1,0 +1,55 @@
+{
+  "skill": "stock-bond-allocation-skill",
+  "version": "1.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我100万本金，股票和债券该怎么分？",
+      "expected_behavior": "调用本skill，输出25%~75%区间＋默认对半开＋再平衡规则",
+      "notes": "正面：配置决策"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "股票涨到快七成了，要不要减一点？",
+      "expected_behavior": "调用本skill，按偏移触发机械再平衡（卖出部分股票回目标比例），不问行情",
+      "notes": "正面：再平衡触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我该不该按\"100减年龄\"来配股票比例？",
+      "expected_behavior": "调用本skill，明确否定该公式，并给出25%债券下限的心理缓冲理由",
+      "notes": "正面：流行公式纠偏"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "我怕通胀，所以想把钱全买成股票抗通胀，这样对吗？",
+      "expected_behavior": "调用本skill，指出通胀不为全仓股票辩护，须同时持有两类资产",
+      "notes": "正面：全仓动机审查"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "这只可转债溢价率30%，要不要转股？",
+      "expected_behavior": "应触发来源路由入口下的 convertible-warrant-skepticism 卡，不是股债比例",
+      "notes": "跨技能诱饵：可转债"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "沪深300现在的市盈率处于历史什么分位？",
+      "expected_behavior": "应触发 market-valuation-check-skill（大盘估值），不是仓位配置",
+      "notes": "跨技能诱饵：市场估值"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我刚退休，还能不能保持七成股票？",
+      "expected_behavior": "调用本skill，按环境审查下调股票上限并说明退休者现金流约束",
+      "notes": "边界：生命周期事件下的比例调整"
+    }
+  ]
+}

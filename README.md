@@ -119,7 +119,15 @@ intelligent-investor-skill/
 ├── LICENSE                        ← MIT
 ├── INDEX.md                       ← skill 地图：能力总表 + 依赖关系 + 加载顺序
 ├── BOOK_OVERVIEW.md               ← 整书理解（Adler 四步拆解，阶段 0 产出）
+├── TEST_SUMMARY.md                ← 阶段 4 压力测试摘要：范围/结构检查/结果/后续动作
+├── CANGJIE_ADAPTATION.md          ← 仓颉适配说明：文本状态/蒸馏目标/证据规则/使用边界
 ├── verified.md                    ← 16 个能力单元的三重验证结论
+├── candidates/                    ← 阶段 1 候选池（184 条原始候选，审计用，不参与运行时加载）
+│   ├── frameworks.md              ← 框架候选 25 条
+│   ├── principles.md              ← 原则候选 71 条
+│   ├── cases.md                   ← 案例候选 38 条
+│   ├── counter_examples.md        ← 反例候选 30 条
+│   └── glossary.md                ← 术语候选 20 条
 ├── bundle/                        ← 源材料（审计与二次编译用，不参与运行时加载）
 │   ├── verified.yaml              ← 16 个 capability 的完整定义与晋级门记录
 │   ├── cards/                     ← 16 张能力卡的原始形态
@@ -128,6 +136,7 @@ intelligent-investor-skill/
 │   └── intelligent-investor-skill/
 │       ├── SKILL.md               ← 入口：触发条件 + 路由表 + 加载规则
 │       ├── BUILD_MANIFEST.json    ← 编译清单与文件哈希
+│       ├── test-prompts.json      ← 单入口触发用例（8 条）
 │       └── references/
 │           ├── overview.md        ← 整书概览
 │           ├── capability-index.md  ← 完整意图与关键词索引
@@ -139,21 +148,29 @@ intelligent-investor-skill/
 │   ├── capability-destinations.json
 │   ├── intelligent-investor-skill-router/
 │   │   ├── SKILL.md               ← 来源路由入口
+│   │   ├── test-prompts.json      ← 路由入口触发用例（7 条）
 │   │   └── references/            ← 16 张卡 + 索引，供 router 内部调用
 │   ├── investor-type-selfcheck-skill/
-│   │   └── SKILL.md
+│   │   ├── SKILL.md
+│   │   └── test-prompts.json      ← 触发用例（7 条）
 │   ├── stock-bond-allocation-skill/
-│   │   └── SKILL.md
+│   │   ├── SKILL.md
+│   │   └── test-prompts.json      ← 触发用例（7 条）
 │   ├── market-valuation-check-skill/
-│   │   └── SKILL.md
+│   │   ├── SKILL.md
+│   │   └── test-prompts.json      ← 触发用例（7 条）
 │   ├── mr-market-discipline-skill/
-│   │   └── SKILL.md
+│   │   ├── SKILL.md
+│   │   └── test-prompts.json      ← 触发用例（7 条）
 │   ├── defensive-stock-screen-skill/
-│   │   └── SKILL.md
+│   │   ├── SKILL.md
+│   │   └── test-prompts.json      ← 触发用例（7 条）
 │   ├── safety-margin-engine-skill/
-│   │   └── SKILL.md
+│   │   ├── SKILL.md
+│   │   └── test-prompts.json      ← 触发用例（7 条）
 │   └── eps-quality-check-skill/
-│       └── SKILL.md
+│       ├── SKILL.md
+│       └── test-prompts.json      ← 触发用例（7 条）
 ```
 
 ## 如何使用

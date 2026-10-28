@@ -1,0 +1,55 @@
+{
+  "skill": "defensive-stock-screen-skill",
+  "version": "1.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "帮我按格雷厄姆的标准筛一批防御型股票",
+      "expected_behavior": "调用本skill，输出四规则＋七项统计标准逐项核验表",
+      "notes": "正面：标准筛股"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "这只白马股符合防御型投资者的选股标准吗？",
+      "expected_behavior": "调用本skill，逐条核验规模/流动比/股息记录/增长/PE≤15/PB≤1.5/乘积≤22.5",
+      "notes": "正面：单股核验"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我的组合只有8只股票，够不够分散？",
+      "expected_behavior": "调用本skill，给出10~30只的组合层规则",
+      "notes": "正面：组合分散度"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "为什么按这套标准我的成长股全被筛掉了？",
+      "expected_behavior": "调用本skill，解释价格关有意排除高乘数成长股，是特性不是缺陷",
+      "notes": "正面：标准解释"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "这家公司频发一次性费用，利润到底可不可信？",
+      "expected_behavior": "应触发 eps-quality-check-skill（利润辨伪），不是准入筛选",
+      "notes": "跨技能诱饵：利润质量"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "什么是市盈率？",
+      "expected_behavior": "基础知识问答，不应调用",
+      "notes": "诱饵：概念解释"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "能不能把22.5那条放宽一点，我真的很看好这家公司",
+      "expected_behavior": "调用本skill，拒绝为心仪标的放宽价格关，并说明放宽后就不是防御型标准",
+      "notes": "边界：为标的求情"
+    }
+  ]
+}

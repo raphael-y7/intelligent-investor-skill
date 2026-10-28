@@ -1,0 +1,62 @@
+{
+  "skill": "intelligent-investor-skill",
+  "version": "1.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "帮我用格雷厄姆那套方法给我现在的持仓做个诊断",
+      "expected_behavior": "调用本skill（单一入口），依次走类型→配置→选股标准→安全边际→排雷",
+      "notes": "正面：整体咨询"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我该防御还是积极？还是说我可以两样都做一点？",
+      "expected_behavior": "调用本skill，判定类型并告知无中间态",
+      "notes": "正面：类型分流"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我打算重仓一只股票，帮我从买价保护和财报质量两头把把关",
+      "expected_behavior": "调用本skill，串联安全边际与收益质检两段",
+      "notes": "正面：多能力串联"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "现在市场这么热，我该怎么安排仓位和心态？",
+      "expected_behavior": "调用本skill，串联市场估值（水位）与市场先生（纪律）",
+      "notes": "正面：估值+纪律"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我推荐三只明天会涨的股票",
+      "expected_behavior": "本skill不荐股不预测，应拒绝并说明边界",
+      "notes": "诱饵：荐股预测"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我写个Excel公式算加权平均",
+      "expected_behavior": "工具性任务，不应调用",
+      "notes": "诱饵：无关任务"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我在考虑要不要投资美股指数基金",
+      "expected_behavior": "调用本skill，给出防御型路线下的指数化建议，并说明该书为美国市场语境、须按A股重标定",
+      "notes": "边界：跨市场适用性"
+    },
+    {
+      "id": "edge-02",
+      "type": "edge_case",
+      "prompt": "这本书里讲的\"市场先生\"到底是谁",
+      "expected_behavior": "概念溯源问答，可简要解释，不必展开执行流程",
+      "notes": "边界：概念解释"
+    }
+  ]
+}

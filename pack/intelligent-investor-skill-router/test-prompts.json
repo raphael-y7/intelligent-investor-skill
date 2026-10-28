@@ -1,0 +1,55 @@
+{
+  "skill": "intelligent-investor-skill-router",
+  "version": "1.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "这只可转债溢价率30%，要不要转股？",
+      "expected_behavior": "经路由指向 convertible-warrant-skepticism 卡",
+      "notes": "正面：可转债场景"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "这只基金管理费1.8%，算贵吗？",
+      "expected_behavior": "经路由指向 fund-selection 卡",
+      "notes": "正面：基金场景"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "现在新股还能不能打？",
+      "expected_behavior": "经路由指向 bubble-new-issue-immunity 卡",
+      "notes": "正面：新股场景"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "格力和美的这两家，我该选哪个？",
+      "expected_behavior": "经路由指向 pairwise-company-comparison 卡",
+      "notes": "正面：成对比较"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我写一个爬取股价的Python脚本",
+      "expected_behavior": "编码任务，不应调用本书任何技能",
+      "notes": "诱饵：无关任务"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "怎么判断我自己是防御型还是积极型投资者？",
+      "expected_behavior": "应直接触发 investor-type-selfcheck-skill，而不是经路由入口",
+      "notes": "跨技能诱饵：已晋级的独立入口"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "什么是net-net？",
+      "expected_behavior": "知识问答；可经路由指向 enterprising-bargain-hunting 卡解释，但不应展开完整筛选流程",
+      "notes": "边界：概念解释vs执行"
+    }
+  ]
+}

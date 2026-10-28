@@ -1,0 +1,55 @@
+{
+  "skill": "market-valuation-check-skill",
+  "version": "1.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "现在A股整体贵不贵，这个位置进场还行吗？",
+      "expected_behavior": "调用本skill，输出股债收益比/希勒PE/三因子期望回报三项指标与高估-合理-低估判断书",
+      "notes": "正面：大盘水位"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "股市未来十年大概能有多少年化回报？",
+      "expected_behavior": "调用本skill，用三因子（实际增长+通胀+股息）给出区间并说明假设",
+      "notes": "正面：期望回报"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "专家说明年上证能到4500点，这种预测可信吗？",
+      "expected_behavior": "调用本skill，拒绝点位预测，改用可算指标评估水位",
+      "notes": "正面：预测免疫"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "大盘涨了这么多，我的股债比例要不要往债券那边挪一点？",
+      "expected_behavior": "调用本skill给出比例倾向；具体再平衡执行指向配置卡",
+      "notes": "正面：估值→仓位倾向"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "贵州茅台现在的市盈率是多少，贵不贵？",
+      "expected_behavior": "个股估值应走 defensive-stock-screen-skill 或估值卡，不是大盘水位",
+      "notes": "跨技能诱饵：个股估值"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "今天沪深300收盘多少点？",
+      "expected_behavior": "纯行情查询，不应调用",
+      "notes": "诱饵：数据查询"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "大盘跌了30%，是不是到底了、可以一把梭？",
+      "expected_behavior": "调用 market-valuation-check-skill 说明只输出水位倾向、不判断底部；若转而走 mr-market-discipline-skill 的跌时三问亦属合理——两者均须明确拒绝\"一把梭\"",
+      "notes": "边界：抄底请求（原预期单一，已放宽为估值卡或纪律卡二选一，理由：两者都不判断底部）"
+    }
+  ]
+}

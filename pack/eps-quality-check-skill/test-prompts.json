@@ -1,0 +1,55 @@
+{
+  "skill": "eps-quality-check-skill",
+  "version": "1.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "这家公司老是计提\"一次性\"费用，利润到底可不可信？",
+      "expected_behavior": "调用本skill，追踪特殊费用构成与反复性，输出利润质量报告",
+      "notes": "正面：特殊费用"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "财报该从哪读起，怎么才能发现猫腻？",
+      "expected_behavior": "调用本skill，给出从最后一页往前读＋注释优先的路径",
+      "notes": "正面：阅读方法"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "这家公司市盈率只有8倍，可它的财报数字可信吗？",
+      "expected_behavior": "调用本skill，先验EPS口径（多口径并列/稀释修正/7年平均）再谈便宜与否",
+      "notes": "正面：低PE质疑（原用例\"是不是很便宜\"信号偏向估值卡，已按\"测试修正须记录理由\"改为明确指向财报可信度）"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "公司发了大量期权、还有可转债，每股收益要怎么算才准？",
+      "expected_behavior": "调用本skill，做完全稀释修正",
+      "notes": "正面：稀释修正"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我按七项标准筛一批防御型股票",
+      "expected_behavior": "应触发 defensive-stock-screen-skill（准入筛选）",
+      "notes": "跨技能诱饵：防御筛选"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这家公司分红很少，是不是对股东不好？",
+      "expected_behavior": "应触发 dividend-shareholder-policy 卡（股息政策）",
+      "notes": "跨技能诱饵：股息"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "这家公司刚上市两年，历史利润数据不够，还能算7年平均利润来做筛选吗？",
+      "expected_behavior": "调用 eps-quality-check-skill（首选：说明无多年记录时平均法不适用）或 defensive-stock-screen-skill（说明上市年限不满足记录关）均可；关键是明确指出该标准在此不适用，不得硬算",
+      "notes": "边界：新股无历史（原预期限定单一技能过窄，已放宽为二选一，理由：两卡都含7年平均口径）"
+    }
+  ]
+}
