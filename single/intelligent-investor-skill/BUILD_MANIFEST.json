@@ -1,0 +1,46 @@
+{
+  "tool": "cangjie-tools v2.5.0",
+  "published_hashes": {
+    "references\\capabilities\\advisor-diligence.md": "8c1296179abe4b48c92e45f44fc99e2b3c19f2f4f2ac2c3bd12dd0165a716fa2",
+    "references\\capabilities\\bubble-new-issue-immunity.md": "309c853ccc0159f16e621fd616d35634870050c903fcce6872ac2bfb70991e23",
+    "references\\capabilities\\convertible-warrant-skepticism.md": "1588997c9a0a6d86bcfb4f1edb8cd4cba1abe17780b07c56f559cbbe5080bfed",
+    "references\\capabilities\\dca-index-portfolio.md": "a453cfbec391fcfa36877fdc1116b071d7741b2c521995ab50e6eda1a66a5042",
+    "references\\capabilities\\defensive-stock-screen-skill.md": "937a7a5892aa1034846f074978a0db41f8840e3b5524bc4a65fb47dead49302f",
+    "references\\capabilities\\dividend-shareholder-policy.md": "73b9828c603f936d38d2871badbcd85e8cf70625a9500d60a93816f3097b19cd",
+    "references\\capabilities\\enterprising-bargain-hunting.md": "fae3c9884dc73fb38ffa1abd4aec44dc9449256b44317eb9c66e626e1960d4e3",
+    "references\\capabilities\\eps-quality-check-skill.md": "4b469985e9ae7e97da6a2dd59998d071dc4817fdce49b68da06bf8a7dd362a5e",
+    "references\\capabilities\\fund-selection.md": "25abd42450b4222e4f9b8c75d59471664863291ac1eeae45e5d8fab161c0a9c5",
+    "references\\capabilities\\graham-valuation-formula.md": "716fff1f67fccf8b820b7473adfadd846bd44f37bc7b485805362f0090bef7c8",
+    "references\\capabilities\\investor-type-selfcheck-skill.md": "680b18f1bfefcadc7d3cbc53ebd705a45b79effe916159752e615785b19dfe07",
+    "references\\capabilities\\market-valuation-check-skill.md": "e30d563e6c4c6b5a1e8846cce33d3cad617afce08a101789e9366e2bd794ecd8",
+    "references\\capabilities\\mr-market-discipline-skill.md": "975ce743aab7d5be6e94308108443d6c368a7919edc047d55f4acc5c976f1e38",
+    "references\\capabilities\\pairwise-company-comparison.md": "bc0ada1a0d970cef6ac17bbac0c1246a1b6a1944f92db38cf53519242f675095",
+    "references\\capabilities\\safety-margin-engine-skill.md": "dd1e601a45b0a081ac704e902c46517daabd9e3afd335b8f4b3602e5dd4ba445",
+    "references\\capabilities\\stock-bond-allocation-skill.md": "244a6fc59a889bbf32058c06e5dbae7f180bfcfbd5a5ff2eab7ca4c97815c290",
+    "references\\capability-index.md": "0fe90ee16a8a245430338b769b25cfaf0a2f1e54a0c7f5c7977de8b798da26ca",
+    "references\\cheatsheet.md": "96a70774b2bb4a42f4a48a5e8a78a418436044fb6e146ae959451f9648164e63",
+    "references\\glossary.md": "c7cc3ba963d1a41bb55789797d83dbfb17989aebfcbe46b84eee6966508cff21",
+    "references\\overview.md": "5861f75e58936e905a253e8c62300e2c529e3a46f11810652e2989e20271fb50",
+    "SKILL.md": "92e5b17aef2887d1fea979a119a81c63e8b0a8b38beb8ee3ea7ce79891a54445"
+  },
+  "note": "update/重编译前比对 published_hashes；检测到本地手改不得静默覆盖",
+  "bundle_id": "bundle.intelligent-investor-skill",
+  "bundle_sha256": "3042b33c39a8b82c2262e5a067c3a6afafb38047bb42fe385ec677003f432937",
+  "variant": "single",
+  "run_id": "run-20261025-084902-a000d9",
+  "decision": {
+    "schema_version": 1,
+    "requested": "single",
+    "selected": "single",
+    "decision_policy": "single-first-v1",
+    "skill_budget": 8,
+    "promoted_count": 7,
+    "capability_count": 16,
+    "reasons": [
+      "用户显式选择 single，auto 决策器不覆盖用户选择"
+    ],
+    "alternative": "compact pack（1 个来源路由入口 + 7 个晋级 Skill，共 8 个可发现入口）",
+    "user_confirmed": true,
+    "preserve_strategy_on_update": true
+  }
+}
