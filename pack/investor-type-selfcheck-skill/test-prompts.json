@@ -1,55 +1,55 @@
 {
   "skill": "investor-type-selfcheck-skill",
-  "version": "1.1.0",
+  "version": "1.0.0",
   "test_cases": [
     {
       "id": "should-trigger-01",
       "type": "should_trigger",
-      "prompt": "我上班挺忙的，每周大概只有两三个小时看盘，该不该自己选股？",
-      "expected_behavior": "调用本skill，按时间/竞争心/简化意愿三问＋环境八问判定类型，多半导向防御型",
-      "notes": "正面：时间约束下的类型判定"
+      "prompt": "我上班挺忙的，每周只有两三个小时能看盘，该自己选股还是买指数？",
+      "expected_behavior": "三问+环境八问判型，时间约束导向防御型",
+      "notes": "正面：类型判定"
     },
     {
       "id": "should-trigger-02",
       "type": "should_trigger",
-      "prompt": "我想拿五万块钱玩玩短线打板，会不会影响我的长期持仓？",
-      "expected_behavior": "调用本skill，给出受控投机规则：单开账户、总额≤10%、盈利撤出不加码",
+      "prompt": "我想拿五万块玩玩短线打板，又不想影响长期持仓，怎么弄？",
+      "expected_behavior": "受控投机：独立账户、≤总资产10%、盈利不加码",
       "notes": "正面：投机隔离"
     },
     {
       "id": "should-trigger-03",
       "type": "should_trigger",
-      "prompt": "我一直拿着几只白马股不动，这到底算投资还是算投机？",
-      "expected_behavior": "调用本skill，用投资定义三要素（深入分析/本金安全/适当回报）逐笔判定",
-      "notes": "正面：投资vs投机判定"
+      "prompt": "我一直拿着几只白马股不动，这算投资还是算投机？",
+      "expected_behavior": "按投资三要素逐笔判定，不满足即投机",
+      "notes": "正面：投资/投机界定"
     },
     {
       "id": "should-trigger-04",
       "type": "should_trigger",
-      "prompt": "我既想稳稳当当又想搏一搏，一半资金做价值一半做趋势，这种折中路线行不行？",
-      "expected_behavior": "调用本skill，明确告知两类投资者之间没有中间态、折中更可能两头落空",
-      "notes": "正面：中间态请求"
+      "prompt": "我想做积极型投资者，怎么判断自己够不够格？",
+      "expected_behavior": "积极型预检：税前超额≥5%、方法不随大流",
+      "notes": "正面：积极型资格"
     },
     {
       "id": "should-not-trigger-01",
       "type": "should_not_trigger",
-      "prompt": "帮我查一下贵州茅台2024年三季报的营业收入和净利润同比增速",
-      "expected_behavior": "纯信息查询，不应调用任何投资决策skill",
-      "notes": "诱饵：非决策"
+      "prompt": "我手上一百万，股票和债券各配多少？",
+      "expected_behavior": "应转 stock-bond-allocation-skill",
+      "notes": "跨skill混淆：比例≠类型"
     },
     {
       "id": "should-not-trigger-02",
       "type": "should_not_trigger",
-      "prompt": "我手上100万，股票和债券应该各配多少比例？",
-      "expected_behavior": "应触发 stock-bond-allocation-skill（配置与再平衡），不是类型判定",
-      "notes": "跨技能诱饵：同书股债配置"
+      "prompt": "帮我查一下茅台2024年三季报营收同比增速",
+      "expected_behavior": "纯数据检索，不触发",
+      "notes": "诱饵：信息查询"
     },
     {
       "id": "edge-01",
       "type": "edge_case",
-      "prompt": "我年纪轻轻才28岁，是不是可以全仓股票、一只债券都不买？",
-      "expected_behavior": "调用本skill（或联动配置卡），但须用环境八问而非年龄作答，并给出全仓股票六项前置条件",
-      "notes": "边界：年龄≠风险偏好"
+      "prompt": "我一半资金做价值一半做趋势，这种折中路线行不行？",
+      "expected_behavior": "判无中间态，只保留≤10%投机账户",
+      "notes": "边界：折中路线"
     }
   ]
 }

@@ -1,55 +1,111 @@
 {
   "skill": "intelligent-investor-skill-router",
-  "version": "1.1.0",
+  "version": "1.0.0",
   "test_cases": [
     {
       "id": "should-trigger-01",
       "type": "should_trigger",
-      "prompt": "这只可转债溢价率30%，要不要转股？",
-      "expected_behavior": "经路由指向 convertible-warrant-skepticism 卡",
-      "notes": "正面：可转债场景"
+      "prompt": "没时间研究股票，想每月定投指数基金，怎么配？",
+      "expected_behavior": "路由至 dca-index-portfolio：定投方案+费用核查",
+      "notes": "router：定投指数"
     },
     {
       "id": "should-trigger-02",
       "type": "should_trigger",
-      "prompt": "这只基金管理费1.8%，算贵吗？",
-      "expected_behavior": "经路由指向 fund-selection 卡",
-      "notes": "正面：基金场景"
+      "prompt": "帮我算内在价值，用8.5加两倍增长率那个公式行吗？",
+      "expected_behavior": "路由至 graham-valuation-formula：8.5+2G，参数重标定",
+      "notes": "router：估值公式"
     },
     {
       "id": "should-trigger-03",
       "type": "should_trigger",
-      "prompt": "现在新股还能不能打？",
-      "expected_behavior": "经路由指向 bubble-new-issue-immunity 卡",
-      "notes": "正面：新股场景"
+      "prompt": "怎么找股价低于净营运资本的便宜股？",
+      "expected_behavior": "路由至 enterprising-bargain-hunting：net-net≤2/3、≥100只",
+      "notes": "router：廉价证券"
     },
     {
       "id": "should-trigger-04",
       "type": "should_trigger",
       "prompt": "格力和美的这两家，我该选哪个？",
-      "expected_behavior": "经路由指向 pairwise-company-comparison 卡",
-      "notes": "正面：成对比较"
+      "expected_behavior": "路由至 pairwise-company-comparison：六维度对照",
+      "notes": "router：成对比较"
+    },
+    {
+      "id": "should-trigger-05",
+      "type": "should_trigger",
+      "prompt": "现在新股还能不能打，是不是人人在炒新股？",
+      "expected_behavior": "路由至 bubble-new-issue-immunity：发行生命周期+症状清单",
+      "notes": "router：新股免疫"
+    },
+    {
+      "id": "should-trigger-06",
+      "type": "should_trigger",
+      "prompt": "这只基金管理费1.8%算贵吗，什么时候该卖？",
+      "expected_behavior": "路由至 fund-selection：费用→风险→业绩+卖出四信号",
+      "notes": "router：基金挑选"
+    },
+    {
+      "id": "should-trigger-07",
+      "type": "should_trigger",
+      "prompt": "这只可转债溢价率30%，要不要转股？",
+      "expected_behavior": "路由至 convertible-warrant-skepticism：发行时点/溢价/永不转换",
+      "notes": "router：可转债"
+    },
+    {
+      "id": "should-trigger-08",
+      "type": "should_trigger",
+      "prompt": "这家公司赚钱却很少分红，是不是对股东不好？",
+      "expected_behavior": "路由至 dividend-shareholder-policy：2/3支付率或留存增值证明",
+      "notes": "router：股息政策"
+    },
+    {
+      "id": "should-trigger-09",
+      "type": "should_trigger",
+      "prompt": "有个荐股群天天推票还保证收益，能信吗？",
+      "expected_behavior": "路由至 advisor-diligence：尽调问卷+危险信号",
+      "notes": "router：投顾尽调"
+    },
+    {
+      "id": "should-trigger-10",
+      "type": "should_trigger",
+      "prompt": "书里说的市场先生到底是什么意思？",
+      "expected_behavior": "解释寓言并指向 mr-market-discipline-skill",
+      "notes": "router：概念溯源"
     },
     {
       "id": "should-not-trigger-01",
       "type": "should_not_trigger",
-      "prompt": "帮我写一个爬取股价的Python脚本",
-      "expected_behavior": "编码任务，不应调用本书任何技能",
-      "notes": "诱饵：无关任务"
+      "prompt": "我该做防御型还是积极型投资者？",
+      "expected_behavior": "应直达 investor-type-selfcheck-skill（已晋级）",
+      "notes": "跨入口混淆：晋级vs路由"
     },
     {
       "id": "should-not-trigger-02",
       "type": "should_not_trigger",
-      "prompt": "怎么判断我自己是防御型还是积极型投资者？",
-      "expected_behavior": "应直接触发 investor-type-selfcheck-skill，而不是经路由入口",
-      "notes": "跨技能诱饵：已晋级的独立入口"
+      "prompt": "帮我看看这家公司财报有没有造假迹象",
+      "expected_behavior": "应直达 eps-quality-check-skill（已晋级）",
+      "notes": "跨入口混淆：晋级vs路由"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "帮我写个爬取股价的Python脚本",
+      "expected_behavior": "编码任务，不触发",
+      "notes": "诱饵：无关任务"
     },
     {
       "id": "edge-01",
       "type": "edge_case",
       "prompt": "什么是net-net？",
-      "expected_behavior": "知识问答；可经路由指向 enterprising-bargain-hunting 卡解释，但不应展开完整筛选流程",
-      "notes": "边界：概念解释vs执行"
+      "expected_behavior": "解释到判据即止，不展开完整流程",
+      "notes": "边界：概念vs执行"
+    },
+    {
+      "id": "edge-02",
+      "type": "edge_case",
+      "prompt": "格雷厄姆那个估值公式现在还能用吗？",
+      "expected_behavior": "结构可用、参数须按当期重标定",
+      "notes": "边界：跨时代适用"
     }
   ]
 }

@@ -7,13 +7,33 @@
 ## 测试范围
 
 - **能力单元**：16 张（7 张 promoted ＋ 9 张 router），编译为 **9 个可发现 skill 目录**——`single/` 下 1 个单入口 `intelligent-investor-skill`，`pack/` 下 8 个（1 个来源路由入口 `intelligent-investor-skill-router` ＋ 7 个独立 skill）。
-- **test-prompts 文件**：**9 份**，与 9 个 skill 目录一一对应（`single/intelligent-investor-skill/` 1 份，`pack/*/` 8 份），合计 **64 条用例**。
-- **覆盖类型**（按 `type` 字段统计）：
-  - `should_trigger`：36 条（每个 skill 4 条正面触发）
-  - `should_not_trigger`：18 条（每个 skill 2 条，其中至少 1 条为同书跨技能诱饵）
-  - `edge_case`：10 条（多数 skill 1 条，单入口 2 条）
-  - `output_case`：**本包没有此类型用例**。输出侧核对以阶段 4 报告中的「代表任务实跑」形式记录（见下），不是 JSON 用例。
+- **test-prompts 文件**：**9 份**（`single/intelligent-investor-skill/` 1 份 ＋ `pack/*/` 8 份），合计 **69 条用例**。
 - **用例来源**：归档 `审计过程/工具脚本/tools_test_prompts.py`（阶段 4 用例生成器，版本字段 `1.1.0`）。该脚本内含 9 套件全部用例定义，本次按 skill 目录原样导出为 `test-prompts.json`，未改写任何 prompt 与预期行为。归档内没有以 `test-prompts*.json` 文件形式存在的用例文件。
+
+按 `type` 字段实测统计（对 9 份文件逐个 `json.load` 后求和）：
+
+| `type` | 条数 | 说明 |
+|---|---|---|
+| `should_trigger` | **39** | 正面触发用例 |
+| `should_not_trigger` | **19** | 不该触发的诱饵，其中多数为同书跨技能诱饵 |
+| `edge_case` | **11** | 边界与歧义问法 |
+| `output_case` | **0** | 本包没有此类型用例；输出侧核对以阶段 4 报告中的「代表任务实跑」形式记录（见下），不是 JSON 用例 |
+| **合计** | **69** | — |
+
+逐文件分布（实测）：
+
+| skill 目录 | `should_trigger` | `should_not_trigger` | `edge_case` | 合计 |
+|---|---|---|---|---|
+| `single/intelligent-investor-skill` | 4 | 2 | 2 | 8 |
+| `pack/intelligent-investor-skill-router` | 10 | 3 | 2 | 15 |
+| `pack/investor-type-selfcheck-skill` | 4 | 2 | 1 | 7 |
+| `pack/stock-bond-allocation-skill` | 4 | 2 | 1 | 7 |
+| `pack/market-valuation-check-skill` | 3 | 2 | 1 | 6 |
+| `pack/mr-market-discipline-skill` | 4 | 2 | 1 | 7 |
+| `pack/defensive-stock-screen-skill` | 3 | 2 | 1 | 6 |
+| `pack/safety-margin-engine-skill` | 3 | 2 | 1 | 6 |
+| `pack/eps-quality-check-skill` | 4 | 2 | 1 | 7 |
+| **合计** | **39** | **19** | **11** | **69** |
 
 ## 结构检查
 
@@ -27,25 +47,24 @@
 | 能力卡六段完整性 | `bundle/cards/` 16 张卡 R / I / A1 / A2 / E / B 六段齐全，缺段 0 |
 | 三处卡片副本一致性 | `single/intelligent-investor-skill/references/capabilities/` 与 `pack/intelligent-investor-skill-router/references/capabilities/` 各 16 份，与 `bundle/cards/` 逐字比对 32/32 一致（忽略空白差异） |
 | `bundle/verified.yaml` | 16 个 `capability_id`、16 个 `slug`，每卡含 `promotion.gate` 五项判据与 `also_read` 字段；条目数与 `INDEX.md` 能力总表 16 行、`pack/capability-destinations.json` 的 `capability_count: 16` 一致 |
-| YAML 解析器校验 | **未做**：当前环境没有 pyyaml，`verified.yaml` 只做了字段计数与结构抽检，未做语法级解析 |
+| YAML 解析器校验 | 用 pyyaml 6.0.3 `safe_load` 解析通过：`capabilities` 16 条、`promotion.gate` 每卡 5 项、`promotion.destination` 为 promoted 7 ＋ router 9、`promotion_budget: 8` 与 `entrypoint_count: 8` 一致 |
 
 ## 结果
 
 - skills：**16 张能力卡 → 9 个可发现 skill 目录**（single 1 ＋ pack 8）
-- test_json：**9 份，64 条用例**
 - 通过情况：
 
   **归档内没有 `test-results*.md`**，逐题结果明细未随归档提供。归档中的阶段 4 报告 `审计过程/拆书审计/runs/2026-10-25-distill/report.md` 记录了如下结果（原文摘录，本次未重跑）：
 
   - 晋级卡触发＋代表任务实跑：**7/7 通过**（T1–T7，其中 T3 用书内 1971 年数据回放、T7 用书内美国铝业 1970 年数据回放，均与书原文一致）
   - 路由卡可达性与结构核验：9 张可达性通过；**代表任务只抽测了 2 张**（bubble、enterprising），其余 7 张未做完整实跑（缺口已登记 `needs-review.md` E-11）
-  - 触发盲测（64 条用例）：首轮 **59/64**，诱饵 0 误触发；5 项失败中 3 项改技能描述、2 项改用例并记录理由；复测 5/5 通过；报告记为最终 **64/64**
+  - 触发盲测：归档报告记为最终 **64/64 通过**（首轮 59/64，诱饵 0 误触发；5 项失败中 3 项改技能描述、2 项改用例并记录理由；复测 5/5 通过）
 
-  > 上述 64/64 是归档报告的文字记录，不是本次执行的产物；仓库内也没有逐题日志。接入后如需可复核的成绩，应按本仓库的 9 份 `test-prompts.json` 重跑一轮并落 `test-results.md`。
+  > 上述 64/64 是归档报告的文字记录，不是本次执行的产物；而且它按 **64 条**用例计，与本仓库实测的 **69 条**对不上（差 5 条，归档未说明成因，此处不推断）。仓库内也没有逐题日志。接入后如需可复核的成绩，应按本仓库的 9 份 `test-prompts.json`（69 条）重跑一轮并落 `test-results.md`。
 
 ## 可接入 darwin-skill 的后续动作
 
-1. **用例直接作为回归样本**：9 份 `test-prompts.json`（64 条）已随各自 skill 目录发布，可作为 darwin-skill 的触发回归基线；改动任何 SKILL.md 的 `description` 后，先跑这 64 条，重点看 `should_not_trigger` 的 18 条诱饵是否被误触发。
+1. **用例直接作为回归样本**：9 份 `test-prompts.json`（69 条）已随各自 skill 目录发布，可作为 darwin-skill 的触发回归基线；改动任何 SKILL.md 的 `description` 后，先跑这 69 条，重点看 `should_not_trigger` 的 19 条诱饵是否被误触发。
 2. **补齐输出侧用例**：本包缺 `output_case` 类型。建议把阶段 4 报告里的 7 个代表任务（类型判定、再平衡、大盘水位、七项筛选、安全边际、暴跌三问、EPS 辨伪）转成带期望输出的 `output_case`，其中 T3、T7 可直接用书内 1971 年数据做可复算的断言。
 3. **补齐 7 张路由卡实跑**：`dca-index-portfolio`、`graham-valuation-formula`、`enterprising-bargain-hunting`、`pairwise-company-comparison`、`fund-selection`、`convertible-warrant-skepticism`、`dividend-shareholder-policy`、`advisor-diligence` 目前只有静态触发词检查（`needs-review.md` E-11），需补代表任务实跑。
 4. **登记 known-issue 用例**：源电子书第 9 章点评费用上限表有排版缺损、另有 5 处原书排印疑误（见 `needs-review.md` D 节）。涉及这些数字的用例应标为 known-issue，避免把源缺陷算成模型错误。

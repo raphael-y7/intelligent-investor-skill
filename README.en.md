@@ -114,63 +114,30 @@ The 184 candidates merged into 16 capability units (7 promoted + 9 router), cove
 
 ```text
 intelligent-investor-skill/
-├── README.md                      ← Chinese version
-├── README.en.md                   ← you are reading this
-├── LICENSE                        ← MIT
-├── INDEX.md                       ← skill map: capability table + dependencies + loading order
-├── BOOK_OVERVIEW.md               ← whole-book comprehension (Adler four-step, stage 0 output)
-├── TEST_SUMMARY.md                ← stage 4 stress-test summary: scope / structure checks / results / next steps
-├── CANGJIE_ADAPTATION.md          ← cangjie adaptation notes: text state / goals / evidence rules / boundaries
-├── verified.md                    ← triple-verification conclusions for the 16 capability units
-├── candidates/                    ← stage 1 candidate pool (184 raw candidates, audit only, not loaded at runtime)
-│   ├── frameworks.md              ← 25 framework candidates
-│   ├── principles.md              ← 71 principle candidates
-│   ├── cases.md                   ← 38 case candidates
-│   ├── counter_examples.md        ← 30 counter-example candidates
-│   └── glossary.md                ← 20 terminology candidates
-├── bundle/                        ← source material (audit and recompilation only, not loaded at runtime)
-│   ├── verified.yaml              ← full definitions and promotion-gate records for the 16 capabilities
-│   ├── cards/                     ← the 16 capability cards in their original form
-│   └── book/                      ← overview.md + glossary.md
-├── single/                        ← single-entry build
-│   └── intelligent-investor-skill/
-│       ├── SKILL.md               ← entry: triggers + routing table + loading rules
-│       ├── BUILD_MANIFEST.json    ← build manifest and file hashes
-│       ├── test-prompts.json      ← entry trigger cases (8)
-│       └── references/
-│           ├── overview.md        ← whole-book overview
-│           ├── capability-index.md  ← full intent and keyword index
-│           ├── cheatsheet.md      ← decision-rule quick reference
-│           ├── glossary.md        ← glossary
-│           └── capabilities/      ← 16 capability cards
-├── pack/                          ← multi-entry build (compact pack)
-│   ├── BUILD_MANIFEST.json
-│   ├── capability-destinations.json
-│   ├── intelligent-investor-skill-router/
-│   │   ├── SKILL.md               ← source router entry
-│   │   ├── test-prompts.json      ← router entry trigger cases (7)
-│   │   └── references/            ← 16 cards + indexes, called by the router
-│   ├── investor-type-selfcheck-skill/
-│   │   ├── SKILL.md
-│   │   └── test-prompts.json      ← trigger cases (7)
-│   ├── stock-bond-allocation-skill/
-│   │   ├── SKILL.md
-│   │   └── test-prompts.json      ← trigger cases (7)
-│   ├── market-valuation-check-skill/
-│   │   ├── SKILL.md
-│   │   └── test-prompts.json      ← trigger cases (7)
-│   ├── mr-market-discipline-skill/
-│   │   ├── SKILL.md
-│   │   └── test-prompts.json      ← trigger cases (7)
-│   ├── defensive-stock-screen-skill/
-│   │   ├── SKILL.md
-│   │   └── test-prompts.json      ← trigger cases (7)
-│   ├── safety-margin-engine-skill/
-│   │   ├── SKILL.md
-│   │   └── test-prompts.json      ← trigger cases (7)
-│   └── eps-quality-check-skill/
-│       ├── SKILL.md
-│       └── test-prompts.json      ← trigger cases (7)
+├── README.md              ← Chinese version
+├── README.en.md           ← you are reading this
+├── LICENSE                ← MIT
+├── BOOK_OVERVIEW.md       ← stage 0 output: Adler whole-book analysis
+├── INDEX.md               ← stage 3 output: skill map + dependencies
+├── verified.md            ← 16 units that passed triple verification
+├── TEST_SUMMARY.md        ← stage 4 output: stress-test summary
+├── CANGJIE_ADAPTATION.md  ← cangjie adaptation notes
+├── GITHUB_REPO.md         ← repository metadata
+├── candidates/            ← stage 1 output: raw candidate pool
+│   ├── frameworks.md      ← framework and method candidates
+│   ├── principles.md      ← principle / rule / calculation candidates
+│   ├── cases.md           ← case candidates from the book
+│   ├── counter-examples.md← counter-example and boundary candidates
+│   └── glossary.md        ← terminology candidates
+├── rejected/              ← stage 1.5 output: rejected units + reasons
+├── bundle/                ← compilation source of truth
+│   ├── verified.yaml      ← capability metadata, criteria and destinations
+│   ├── cards/             ← capability card sources (six sections)
+│   └── book/              ← overview.md + glossary.md
+├── single/                ← single-mode build (one entry + all capability cards)
+│   └── intelligent-investor-skill/SKILL.md  ← entry: triggers + routing table + loading rules
+└── pack/                  ← pack-mode build (one router + 7 promoted skills)
+    └── */SKILL.md         ← 8 skills, each shipping a test-prompts.json
 ```
 
 ## Usage

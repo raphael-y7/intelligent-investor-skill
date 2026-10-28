@@ -1,54 +1,47 @@
 {
   "skill": "safety-margin-engine-skill",
-  "version": "1.1.0",
+  "version": "1.0.0",
   "test_cases": [
     {
       "id": "should-trigger-01",
       "type": "should_trigger",
-      "prompt": "这个价位买入有没有安全边际、有没有保护？",
-      "expected_behavior": "调用本skill，按盈利能力−债券利率与市价/评估价值≤2/3双口径测算",
+      "prompt": "这个价位买入有没有安全边际、算不算有保护？",
+      "expected_behavior": "双口径：盈利能力−债息、市价/评估值≤2/3",
       "notes": "正面：买价保护"
     },
     {
       "id": "should-trigger-02",
       "type": "should_trigger",
-      "prompt": "我打算重仓这一只，买入前该怎么自检？",
-      "expected_behavior": "调用本skill，出镜子测试（信心侧+遗憾侧）＋分散化要求＋回本年数",
+      "prompt": "我准备重仓这一只，买入前该怎么自检？",
+      "expected_behavior": "镜子测试＋分散化，后果不可承受即否决",
       "notes": "正面：重仓自检"
     },
     {
       "id": "should-trigger-03",
       "type": "should_trigger",
-      "prompt": "我该等它跌到多少再买？",
-      "expected_behavior": "调用本skill，用评估价值与2/3折扣线给出价格条件（不给点位预测）",
-      "notes": "正面：等待价位"
-    },
-    {
-      "id": "should-trigger-04",
-      "type": "should_trigger",
-      "prompt": "亏了60%了，还要多少年才能回本？",
-      "expected_behavior": "调用本skill，用回本年数公式计算并说明盈亏不对称",
+      "prompt": "亏了80%，按年化10%还要几年回本？",
+      "expected_behavior": "回本年数公式，盈亏不对称",
       "notes": "正面：亏损数学"
     },
     {
       "id": "should-not-trigger-01",
       "type": "should_not_trigger",
       "prompt": "现在大盘整体估值贵不贵？",
-      "expected_behavior": "应触发 market-valuation-check-skill（大盘水位）",
-      "notes": "跨技能诱饵：市场估值"
+      "expected_behavior": "应转 market-valuation-check-skill",
+      "notes": "跨skill混淆：大盘水位"
     },
     {
       "id": "should-not-trigger-02",
       "type": "should_not_trigger",
-      "prompt": "帮我算一下这家公司的可转债转股溢价率",
-      "expected_behavior": "应触发 convertible-warrant-skepticism 卡",
-      "notes": "跨技能诱饵：可转债计算"
+      "prompt": "帮我算这只可转债的转股溢价率",
+      "expected_behavior": "应转 convertible-warrant-skepticism 卡",
+      "notes": "跨skill混淆：转债计算"
     },
     {
       "id": "edge-01",
       "type": "edge_case",
-      "prompt": "我百分之百确定这家公司三年后利润翻倍，还需要安全边际吗？",
-      "expected_behavior": "调用本skill，说明主观自信不算边际、安全边际正是为了不必预测",
+      "prompt": "我百分百确定这家公司三年后利润翻倍，还需要安全边际吗？",
+      "expected_behavior": "主观自信不算边际，先查预期是否已入价",
       "notes": "边界：确定性幻觉"
     }
   ]
