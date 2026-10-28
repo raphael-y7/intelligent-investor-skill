@@ -1,12 +1,12 @@
 ---
 name: mr-market-discipline-skill
 description: |
-  当用户大跌后恐慌想割肉、大涨后想追、或问"要不要择时"时使用：输出涨时/跌时各一套三问检查表+择时vs估价二分+组合波动预期（比低点+50%、比高点−1/3）+五件可控之事清单。不提供任何市场预测；与估值类能力互为表里。
+  当用户大跌后恐慌想割肉、大涨后追高冲动、盯盘手痒、或问"要不要择时/该不该信买卖信号"时使用：输出涨时/跌时各一套三问检查表+择时vs估价二分+组合波动预期（比低点+50%、比高点−1/3）+五件可控之事清单。只管"当下的情绪与操作冲动"：不做股债比例调整（属配置卡）、不做大盘水位测算（属估值卡）、不做亏损回本数学（属安全边际卡）。不提供任何市场预测。
 metadata:
   cangjie.generated-by: cangjie-tools v2.5.0
-  cangjie.capability-id: cap.intelligent-investor-skill.mr-market-discipline-skill
-  cangjie.capability-revision: 1
-  cangjie.bundle-id: bundle.intelligent-investor-skill
+  cangjie.capability-id: cap.intelligent-investor-4e.mr-market-discipline
+  cangjie.capability-revision: 2
+  cangjie.bundle-id: bundle.intelligent-investor-4e
   cangjie.source-title: 聪明的投资者（第4版，注疏点评版）
   cangjie.tags: behavior, discipline, mr-market
 ---

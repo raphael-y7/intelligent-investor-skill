@@ -4,9 +4,9 @@ description: |
   当用户要"按格雷厄姆标准选股""检查这只票能不能进防御组合"时使用：四大规则（10~30只/大型知名财务稳健/7年平均PE≤25且12个月≤20/持续股息）+七项统计标准+乘积≤22.5逐项打分。所有数值为1972年美国参数，跨市场须按当期利率重标定结构。
 metadata:
   cangjie.generated-by: cangjie-tools v2.5.0
-  cangjie.capability-id: cap.intelligent-investor-skill.defensive-stock-screen-skill
-  cangjie.capability-revision: 1
-  cangjie.bundle-id: bundle.intelligent-investor-skill
+  cangjie.capability-id: cap.intelligent-investor-4e.defensive-stock-screen
+  cangjie.capability-revision: 2
+  cangjie.bundle-id: bundle.intelligent-investor-4e
   cangjie.source-title: 聪明的投资者（第4版，注疏点评版）
   cangjie.tags: stock-screening, quantitative, defensive
 ---

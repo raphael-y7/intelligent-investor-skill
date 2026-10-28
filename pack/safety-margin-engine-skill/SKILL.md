@@ -1,12 +1,12 @@
 ---
 name: safety-margin-engine-skill
 description: |
-  当用户问"这个价格买入有没有保护""该等多少折扣""重仓前自检"时使用：按盈利能力−债券利率与市价/评估价值≤2/3双口径测算，附分散化要求与镜子测试问卷（信心侧+遗憾侧+回本年数）。不做精确估值；分子必须是多年平均利润。
+  当用户问"这个价格买入有没有保护""该等多少折扣""重仓前自检""亏了这么多还要几年才能回本"时使用：按盈利能力−债券利率与市价/评估价值≤2/3双口径测算，附分散化要求、镜子测试问卷（信心侧+遗憾侧）与亏损回本年数计算。不做精确估值；分子必须是多年平均利润。
 metadata:
   cangjie.generated-by: cangjie-tools v2.5.0
-  cangjie.capability-id: cap.intelligent-investor-skill.safety-margin-engine-skill
-  cangjie.capability-revision: 1
-  cangjie.bundle-id: bundle.intelligent-investor-skill
+  cangjie.capability-id: cap.intelligent-investor-4e.safety-margin-engine
+  cangjie.capability-revision: 2
+  cangjie.bundle-id: bundle.intelligent-investor-4e
   cangjie.source-title: 聪明的投资者（第4版，注疏点评版）
   cangjie.tags: margin-of-safety, decision, risk-check
 ---

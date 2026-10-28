@@ -17,17 +17,17 @@
     "references\\capabilities\\pairwise-company-comparison.md": "bc0ada1a0d970cef6ac17bbac0c1246a1b6a1944f92db38cf53519242f675095",
     "references\\capabilities\\safety-margin-engine-skill.md": "dd1e601a45b0a081ac704e902c46517daabd9e3afd335b8f4b3602e5dd4ba445",
     "references\\capabilities\\stock-bond-allocation-skill.md": "244a6fc59a889bbf32058c06e5dbae7f180bfcfbd5a5ff2eab7ca4c97815c290",
-    "references\\capability-index.md": "0fe90ee16a8a245430338b769b25cfaf0a2f1e54a0c7f5c7977de8b798da26ca",
+    "references\\capability-index.md": "99e9b0247505956c6378ca67ba4e37610e94b6141b6deded74527893ce8e1826",
     "references\\cheatsheet.md": "96a70774b2bb4a42f4a48a5e8a78a418436044fb6e146ae959451f9648164e63",
     "references\\glossary.md": "c7cc3ba963d1a41bb55789797d83dbfb17989aebfcbe46b84eee6966508cff21",
     "references\\overview.md": "5861f75e58936e905a253e8c62300e2c529e3a46f11810652e2989e20271fb50",
-    "SKILL.md": "92e5b17aef2887d1fea979a119a81c63e8b0a8b38beb8ee3ea7ce79891a54445"
+    "SKILL.md": "547114a08cc1e877aaad4774b9ec873df369dcfc39a229311d5898ec0d123cff"
   },
   "note": "update/重编译前比对 published_hashes；检测到本地手改不得静默覆盖",
-  "bundle_id": "bundle.intelligent-investor-skill",
-  "bundle_sha256": "3042b33c39a8b82c2262e5a067c3a6afafb38047bb42fe385ec677003f432937",
+  "bundle_id": "bundle.intelligent-investor-4e",
+  "bundle_sha256": "b12370336c6892a9ade503798c756b972b63d9df56258931c01f14ed6ab11ef7",
   "variant": "single",
-  "run_id": "run-20261025-084902-a000d9",
+  "run_id": "run-20261028-211246-e41694",
   "decision": {
     "schema_version": 1,
     "requested": "single",

@@ -4,9 +4,9 @@ description: |
   当用户拿到一份财报要判断利润真假、或持仓公司有并购/一次性费用/期权新闻时使用：输出利润质量核查报告（EPS三重还原+增长率口径+红旗清单打勾表）。需财报数据，缺失先索取；不替代审计意见。
 metadata:
   cangjie.generated-by: cangjie-tools v2.5.0
-  cangjie.capability-id: cap.intelligent-investor-skill.eps-quality-check-skill
-  cangjie.capability-revision: 1
-  cangjie.bundle-id: bundle.intelligent-investor-skill
+  cangjie.capability-id: cap.intelligent-investor-4e.eps-quality-check
+  cangjie.capability-revision: 2
+  cangjie.bundle-id: bundle.intelligent-investor-4e
   cangjie.source-title: 聪明的投资者（第4版，注疏点评版）
   cangjie.tags: earnings-quality, accounting, red-flags
 ---

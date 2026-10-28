@@ -5,7 +5,7 @@ description: |
 metadata:
   cangjie.generated-by: cangjie-tools v2.5.0
   cangjie.variant: single
-  cangjie.bundle-id: bundle.intelligent-investor-skill
+  cangjie.bundle-id: bundle.intelligent-investor-4e
   cangjie.capability-count: 16
   cangjie.entrypoint-count: 1
 ---
@@ -33,22 +33,22 @@ metadata:
 
 | 用户意图 | 先读 | 补读/备注 |
 |---|---|---|
-| 判断自己适合防御还是积极投资；划定投机额度；决定投入多少时间研究股票 | references/capabilities/investor-type-selfcheck-skill.md | references/capabilities/stock-bond-allocation-skill.md、references/capabilities/defensive-stock-screen-skill.md、references/capabilities/enterprising-bargain-hunting-skill.md |
-| 决定股债比例；建立再平衡规则；全仓股票前自查；抗通胀资产安排 | references/capabilities/stock-bond-allocation-skill.md | references/capabilities/market-valuation-check-skill.md、references/capabilities/dca-index-portfolio-skill.md、references/capabilities/investor-type-selfcheck-skill.md |
+| 判断自己适合防御还是积极投资；划定投机额度；决定投入多少时间研究股票 | references/capabilities/investor-type-selfcheck-skill.md | references/capabilities/stock-bond-allocation-skill.md、references/capabilities/defensive-stock-screen-skill.md、references/capabilities/enterprising-bargain-hunting.md |
+| 决定股债比例；建立再平衡规则；全仓股票前自查；抗通胀资产安排 | references/capabilities/stock-bond-allocation-skill.md | references/capabilities/market-valuation-check-skill.md、references/capabilities/dca-index-portfolio.md、references/capabilities/investor-type-selfcheck-skill.md |
 | 判断大盘整体贵不贵；现在能不能入场；估算股市长期预期回报 | references/capabilities/market-valuation-check-skill.md | references/capabilities/stock-bond-allocation-skill.md、references/capabilities/mr-market-discipline-skill.md |
 | 面对暴跌怎么办；涨了想追怎么办；克服追涨杀跌；拿不住股票 | references/capabilities/mr-market-discipline-skill.md | references/capabilities/safety-margin-engine-skill.md、references/capabilities/market-valuation-check-skill.md |
-| 按防御标准筛选股票；检查某股是否符合格雷厄姆标准；建立稳健组合 | references/capabilities/defensive-stock-screen-skill.md | references/capabilities/eps-quality-check-skill.md、references/capabilities/graham-valuation-formula-skill.md、references/capabilities/safety-margin-engine-skill.md |
-| 判断买价有没有保护；测算安全边际；买入前风险自检；亏了大半怎么办 | references/capabilities/safety-margin-engine-skill.md | references/capabilities/graham-valuation-formula-skill.md、references/capabilities/eps-quality-check-skill.md、references/capabilities/mr-market-discipline-skill.md |
-| 识别利润注水；排查财务红旗；还原真实每股收益；从后往前读财报 | references/capabilities/eps-quality-check-skill.md | references/capabilities/defensive-stock-screen-skill.md、references/capabilities/safety-margin-engine-skill.md、references/capabilities/pairwise-company-comparison-skill.md |
-| 建立定投计划；选择指数基金；不想花时间研究股票怎么投 | references/capabilities/dca-index-portfolio-skill.md | references/capabilities/fund-selection-skill.md、references/capabilities/stock-bond-allocation-skill.md |
-| 用格雷厄姆公式估值；评估债券安全；计算利息保障倍数；两步评估法 | references/capabilities/graham-valuation-formula-skill.md | references/capabilities/safety-margin-engine-skill.md、references/capabilities/market-valuation-check-skill.md、references/capabilities/defensive-stock-screen-skill.md |
-| 做积极型投资怎么选股；找廉价证券；net-net筛选；低市盈率策略 | references/capabilities/enterprising-bargain-hunting-skill.md | references/capabilities/investor-type-selfcheck-skill.md、references/capabilities/safety-margin-engine-skill.md、references/capabilities/pairwise-company-comparison-skill.md |
-| 两家同业公司怎么选；对比分析两家公司；质量与价格权衡 | references/capabilities/pairwise-company-comparison-skill.md | references/capabilities/eps-quality-check-skill.md、references/capabilities/enterprising-bargain-hunting-skill.md、references/capabilities/defensive-stock-screen-skill.md |
-| 判断是不是泡沫顶部；打新股值不值；热门股能不能追；有效方法失灵了怎么办 | references/capabilities/bubble-new-issue-immunity-skill.md | references/capabilities/mr-market-discipline-skill.md、references/capabilities/market-valuation-check-skill.md |
-| 怎么选基金；基金费率高不高；什么时候卖基金；指数还是主动 | references/capabilities/fund-selection-skill.md | references/capabilities/dca-index-portfolio-skill.md、references/capabilities/investor-type-selfcheck-skill.md |
-| 可转债能不能买；转换溢价高不高；权证稀释怎么算；双低策略怎么看 | references/capabilities/convertible-warrant-skepticism-skill.md | references/capabilities/eps-quality-check-skill.md、references/capabilities/safety-margin-engine-skill.md |
-| 公司不分红好不好；股息政策怎么评价；高送转怎么看；股东大会投票 | references/capabilities/dividend-shareholder-policy-skill.md | references/capabilities/eps-quality-check-skill.md、references/capabilities/pairwise-company-comparison-skill.md |
-| 要不要请投资顾问；怎么辨别理财顾问骗局；荐股群可信吗 | references/capabilities/advisor-diligence-skill.md | references/capabilities/investor-type-selfcheck-skill.md、references/capabilities/fund-selection-skill.md |
+| 按防御标准筛选股票；检查某股是否符合格雷厄姆标准；建立稳健组合 | references/capabilities/defensive-stock-screen-skill.md | references/capabilities/eps-quality-check-skill.md、references/capabilities/graham-valuation-formula.md、references/capabilities/safety-margin-engine-skill.md |
+| 判断买价有没有保护；测算安全边际；买入前风险自检；亏了大半怎么办 | references/capabilities/safety-margin-engine-skill.md | references/capabilities/graham-valuation-formula.md、references/capabilities/eps-quality-check-skill.md、references/capabilities/mr-market-discipline-skill.md |
+| 识别利润注水；排查财务红旗；还原真实每股收益；从后往前读财报 | references/capabilities/eps-quality-check-skill.md | references/capabilities/defensive-stock-screen-skill.md、references/capabilities/safety-margin-engine-skill.md、references/capabilities/pairwise-company-comparison.md |
+| 建立定投计划；选择指数基金；不想花时间研究股票怎么投 | references/capabilities/dca-index-portfolio.md | references/capabilities/fund-selection.md、references/capabilities/stock-bond-allocation-skill.md |
+| 用格雷厄姆公式估值；评估债券安全；计算利息保障倍数；两步评估法 | references/capabilities/graham-valuation-formula.md | references/capabilities/safety-margin-engine-skill.md、references/capabilities/market-valuation-check-skill.md、references/capabilities/defensive-stock-screen-skill.md |
+| 做积极型投资怎么选股；找廉价证券；net-net筛选；低市盈率策略 | references/capabilities/enterprising-bargain-hunting.md | references/capabilities/investor-type-selfcheck-skill.md、references/capabilities/safety-margin-engine-skill.md、references/capabilities/pairwise-company-comparison.md |
+| 两家同业公司怎么选；对比分析两家公司；质量与价格权衡 | references/capabilities/pairwise-company-comparison.md | references/capabilities/eps-quality-check-skill.md、references/capabilities/enterprising-bargain-hunting.md、references/capabilities/defensive-stock-screen-skill.md |
+| 判断是不是泡沫顶部；打新股值不值；热门股能不能追；有效方法失灵了怎么办 | references/capabilities/bubble-new-issue-immunity.md | references/capabilities/mr-market-discipline-skill.md、references/capabilities/market-valuation-check-skill.md |
+| 怎么选基金；基金费率高不高；什么时候卖基金；指数还是主动 | references/capabilities/fund-selection.md | references/capabilities/dca-index-portfolio.md、references/capabilities/investor-type-selfcheck-skill.md |
+| 可转债能不能买；转换溢价高不高；权证稀释怎么算；双低策略怎么看 | references/capabilities/convertible-warrant-skepticism.md | references/capabilities/eps-quality-check-skill.md、references/capabilities/safety-margin-engine-skill.md |
+| 公司不分红好不好；股息政策怎么评价；高送转怎么看；股东大会投票 | references/capabilities/dividend-shareholder-policy.md | references/capabilities/eps-quality-check-skill.md、references/capabilities/pairwise-company-comparison.md |
+| 要不要请投资顾问；怎么辨别理财顾问骗局；荐股群可信吗 | references/capabilities/advisor-diligence.md | references/capabilities/investor-type-selfcheck-skill.md、references/capabilities/fund-selection.md |
 
 **非能力类查询**：
 - 书名/作者/章节/整书概览 → references/overview.md

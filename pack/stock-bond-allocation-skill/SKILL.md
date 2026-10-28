@@ -1,12 +1,12 @@
 ---
 name: stock-bond-allocation-skill
 description: |
-  当用户问"股债怎么配""要不要全仓股票""跌了要不要加仓"时使用：输出25%~75%区间配置+对半开基准+越界5个百分点的再平衡触发+全仓股票六项前置条件自查。不含个股选择；比例数值须按当期无风险利率重标定。
+  当用户问"股债怎么配""涨多了要不要减仓/再平衡""要不要全仓股票""跌了要不要加仓"时使用：输出25%~75%区间配置+对半开基准+越界5个百分点（或涨至55%卖十一分之一）的再平衡触发+全仓股票六项前置条件自查。只管大类比例与机械再平衡，不做情绪安抚、不做行情判断、不做单只股票决策；比例数值须按当期无风险利率重标定。
 metadata:
   cangjie.generated-by: cangjie-tools v2.5.0
-  cangjie.capability-id: cap.intelligent-investor-skill.stock-bond-allocation-skill
-  cangjie.capability-revision: 1
-  cangjie.bundle-id: bundle.intelligent-investor-skill
+  cangjie.capability-id: cap.intelligent-investor-4e.stock-bond-allocation
+  cangjie.capability-revision: 2
+  cangjie.bundle-id: bundle.intelligent-investor-4e
   cangjie.source-title: 聪明的投资者（第4版，注疏点评版）
   cangjie.tags: asset-allocation, rebalancing, discipline
 ---

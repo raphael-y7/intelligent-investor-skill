@@ -2,29 +2,30 @@
 
 <p align="center"><a href="README.md">中文</a> | English</p>
 
-An AI skill pack for immediate use — it distills the investment methodology in Benjamin Graham's *The Intelligent Investor* into 16 capability cards that can be triggered individually or combined.
+An AI skill pack for immediate use — it distills the investment decision system in Benjamin Graham's *The Intelligent Investor* into 16 capability cards that can be triggered individually or combined.
 
 It is not a book summary, nor a reading response — it breaks the reusable methodology in the book into skill modules that can be triggered, executed and tested.
 
 ## What these skills solve
 
-- You hold a stock and want to know whether this price gives you protection, but you can only compute a trailing one-year P/E and do not know how many years of average earnings should be the denominator
-- You cannot say whether you belong on the defensive or the enterprising route, or you mix both — the book is explicit that there is no such thing as "a good half-operator"
-- You want to run Graham's seven statistical criteria over a portfolio, but those numbers (22.5, 15×, 1.5×, 2:1) were parameters of the US market he wrote in, and you do not know which parts to keep and which must be re-standardized to current rates
-- A market drop makes you want to sell everything and a rally makes you want to add — you lack a written-down volatility budget and a checklist for the moment it happens
-- You can read net profit in a financial report but cannot tell whether "special charges", "fully diluted" and "multi-year average" are hiding watered-down earnings
-- You cannot see that the late-bull-market moves that look different (buying new issues, chasing hot stocks, following "whatever works" systems) are really the same move
+- You cannot say whether you belong to the defensive or the enterprising camp, so you end up running enterprising moves on a defensive allocation — the "half businessman" outcome the book warns about
+- You want to add on every rally and sell on every drop, and you have no written plan that accepts a +50% / −33% swing in advance, so there is no discipline left when the drop arrives
+- You want to screen stocks the Graham way, but which profit denominator each of the seven statistical criteria uses, and how the price-to-earnings × price-to-book product cap works, gets fuzzy the moment you start
+- You cannot tell whether a purchase price actually carries protection: the earnings-yield spread over bond yields and the market-price discount to appraised value are two different measures for two different situations
+- Special charges, acquisitions and option dilution make reported earnings look fine, and you do not know which line to audit backwards from
+- You hold one fund or one advisor recommendation and cannot rank fees, track record and conflicts of interest in the right order
 
 ## What was distilled
 
-16 capability cards, organized in the order "place yourself first, then read the market level, then take the defensive or enterprising route, and de-risk last":
+16 capability cards, organized in the order "split by investor type first, allocate second, screen third, compute the margin last":
 
-- **Place yourself first**: `investor-type-selfcheck-skill` (investor type self-check and speculation isolation), `stock-bond-allocation-skill` (25%–75% stock/bond allocation and rebalancing discipline)
-- **Market level and temperament**: `market-valuation-check-skill` (whole-market valuation check), `mr-market-discipline-skill` (Mr. Market volatility discipline)
-- **Defensive route**: `defensive-stock-screen-skill` (defensive screening: four portfolio rules plus seven statistical criteria), `safety-margin-engine-skill` (margin-of-safety calculation and decision, including a behavioral self-check), `dca-index-portfolio` (dollar-cost averaging plus index funds), `fund-selection` (fund selection and sell signals)
-- **Enterprising route**: `enterprising-bargain-hunting` (three enterprising strategies: low-P/E large caps, bargain net-nets, special situations), `graham-valuation-formula` (Graham valuation: simplified formula, two-step appraisal, bond coverage), `pairwise-company-comparison` (pairwise company comparison)
-- **De-risking and accounting vigilance**: `eps-quality-check-skill` (earnings-per-share forensics and red flags), `convertible-warrant-skepticism` (convertible bonds and warrants), `dividend-shareholder-policy` (dividend policy and shareholder action)
-- **Mania immunity and outside dependence**: `bubble-new-issue-immunity` (bull-market bubble symptoms and new-issue immunity), `advisor-diligence` (investment advisor due diligence)
+- **Type split and allocation** (4 cards): `investor-type-selfcheck-skill` (investor type self-check and speculation segregation), `stock-bond-allocation-skill` (25%–75% stock/bond allocation and rebalancing discipline), `market-valuation-check-skill` (whole-market valuation check), `mr-market-discipline-skill` (Mr. Market volatility discipline)
+- **Defensive screening and valuation** (4 cards): `defensive-stock-screen-skill` (four rules plus seven statistical criteria), `eps-quality-check-skill` (earnings-quality forensics and financial red flags), `graham-valuation-formula` (simplified formula, two-step appraisal, bond coverage), `safety-margin-engine-skill` (margin-of-safety calculation and decision, with a behavioral self-check)
+- **Enterprising route and side-by-side comparison** (3 cards): `enterprising-bargain-hunting` (low-P/E large caps, cheap net-nets, special situations), `pairwise-company-comparison` (paired company comparison), `convertible-warrant-skepticism` (convertibles and warrants skepticism)
+- **Passive route and outside dependencies** (3 cards): `dca-index-portfolio` (dollar-cost averaging plus index funds), `fund-selection` (fund selection and sell signals), `advisor-diligence` (investment advisor due diligence)
+- **Market cycle and shareholder relations** (2 cards): `bubble-new-issue-immunity` (bubble symptoms and new-issue immunity), `dividend-shareholder-policy` (dividend policy and shareholder action)
+
+> 16 cards in total: 7 promoted (compiled into standalone skills in the pack) + 9 router (kept inside the router entry). The slugs match the `capabilities` list in `bundle/verified.yaml` one for one.
 
 ## Two packaging modes: single and pack
 
@@ -39,13 +40,13 @@ The same 16 capability cards are compiled twice, at two granularities. The conte
 
 The 7 cards promoted to standalone skills in the pack:
 
-- `investor-type-selfcheck-skill` — investor type self-check and speculation isolation
+- `investor-type-selfcheck-skill` — investor type self-check and speculation segregation
 - `stock-bond-allocation-skill` — 25%–75% stock/bond allocation and rebalancing discipline
 - `market-valuation-check-skill` — whole-market valuation check
 - `mr-market-discipline-skill` — Mr. Market volatility discipline
 - `defensive-stock-screen-skill` — defensive screening: four rules plus seven statistical criteria
 - `safety-margin-engine-skill` — margin-of-safety calculation and decision
-- `eps-quality-check-skill` — earnings-per-share forensics and red flags
+- `eps-quality-check-skill` — earnings-quality forensics and financial red flags
 
 ### Which one to install
 
@@ -54,7 +55,7 @@ Pick by the way you work, and **install only one**:
 | How you work | Recommended | Why |
 |---|---|---|
 | You use DSH / Codex / Claude Code with a skills directory and want a clean list | single | Takes 1 slot, loses no capabilities |
-| Your daily questions concentrate on "which kind of investor am I / how do I split stocks and bonds / is the market expensive / should I sell after a drop / how do I screen stocks / does this price protect me / are the earnings real" | pack | Those are exactly the 7 promoted standalone skills, matched directly |
+| Your daily questions concentrate on "defensive or enterprising / how to split stocks and bonds / is the market expensive / should I sell in a drop / screen this stock by the criteria / does this price carry protection / is the earnings number clean" | pack | Those are exactly the 7 promoted standalone skills, matched directly |
 | You distribute to several agents or teammates who pick what they need | pack | They can install only the standalone skills they want |
 | You want to install once and maintain one directory | single | Upgrades replace a single directory |
 
@@ -62,63 +63,52 @@ Pick by the way you work, and **install only one**:
 
 ## Examples
 
-### Example 1: does this price give me protection?
+### Example 1: a blue chip that does not look expensive — does it pass Graham's screen?
 
 **User question**
 
-"This stock trades at 22. Last year's EPS was 1.8, so the P/E is only 12. Isn't that cheap? Can I buy?"
+"This blue chip has averaged a P/E of 14 over the past three years and trades at 1.6× book. It has paid dividends for 15 straight years and has never posted a loss. Does it pass Graham's criteria?"
 
 **How the skill reasons**
 
-- It first hits the input contract of `safety-margin-engine-skill`: at least 7 years of EPS (including bad years), the current price, the high-grade bond rate, dilution data and an appraised value. With one year of earnings only → ask for the data; a single year must not stand in for the series
-- Reconstruct earning power: 7–10 year average earnings (including special items) ÷ purchase price, on a fully diluted basis
-- Route one: margin A = earning power % − bond rate %. The book's worked example is 9% earning power against a 4% bond rate, a 5-point annual gap, accumulating to about half the purchase price over ten years
-- Route two: discount rate = market price ÷ appraised value; the book's requirement for the enterprising investor is ≤ 2/3
-- Earnings-quality gate: if a boom-year single-year profit is mixed in, or an accounting red flag fires → hand over to `eps-quality-check-skill` and recompute the numerator
-- Two closing steps: the diversification requirement (a margin on a single security is false safety) and the mirror test (what is the worst loss, and how many years at 10% to get back to even)
+- First `investor-type-selfcheck-skill`: confirm the user is on the defensive track (the three enterprising strategies have completely different thresholds and must not be mixed in)
+- Then `defensive-stock-screen-skill`: check the seven criteria one by one — size, financial condition (current ratio ≥ 2:1 and long-term debt ≤ working capital for an industrial), earnings record (a profit in each of the past 10 years), dividend record (uninterrupted for ≥ 20 years), growth (10-year EPS growth ≥ one third), and the price tests (P/E ≤ 15, P/B ≤ 1.5, and the product of the two ≤ 22.5)
+- Cross-check with `eps-quality-check-skill`: the denominator must be multi-year average earnings; look first for special charges, acquisitions or option dilution inflating EPS
+- Finally `safety-margin-engine-skill`: compute the earnings-yield spread over high-grade bond yields, and the discount of market price to appraised value
 
 **Sample answer**
 
-> A P/E of 12 uses last year's earnings, while this book always uses multi-year average earnings as the denominator — so do not call it cheap yet. Pull 7–10 years of EPS (bad years included) and recompute earning power on the average. If there was a "special charge" or a one-off gain in that window, clean the numerator with `eps-quality-check` first; otherwise you are measuring how cheap the best year was.
->
-> Then run the two routes. The first is earning power minus the current high-grade bond rate: the book's example is 9% against 4%, a 5-point annual gap that accumulates to about half the purchase price over ten years. Note that 4% was the US bond rate where he wrote it; you must substitute the current rate for comparable bonds. After the substitution the gap may be zero or negative, and then the answer is "do not buy" — do not manufacture a cushion. The second route is the discount of price to appraised value, where the book draws the line for the enterprising investor at no more than 2/3 of appraised value — but appraised value has to come out of the valuation card, not out of thin air.
->
-> The last step is the behavioral self-check: compute the worst case first (the book's example is a 98.4% loss, which takes more than 43 years to recover at 10% a year), then ask whether you can live with that outcome. If you cannot, it is a veto, not a reason to buy a smaller position. The card also requires diversification — a "margin of safety" on one stock alone is false safety. One more thing: the book gives no universal pass line for what counts as an adequate margin; it gives the 2/3 discount convention and the 9%-against-4% example, so that line is yours to set and write into the plan.
+> Do not call it a pass yet. Of the two numbers you gave, 14 × 1.6 = 22.4, which just squeezes inside the 22.5 product line; but P/B 1.6 alone breaks the 1.5 cap — the book's rule is that when the P/E is below 15 the P/B may be relaxed under the product test, so you must state that you are using the product convention rather than passing every item individually. The second question matters more: which year's earnings produced that 14×? If it is the trailing twelve months, it has to be replaced with the average of the past three years, and the P/E usually moves once you swap the denominator. Third, 15 years of dividends is not enough — the original text requires 20 consecutive years, and where market history is shorter the commentary allows 10–20 years, but you have to write that declaration into the conclusion. One last warning: these numbers (22.5, 15×, 1.5×, 2:1) are 1972 US parameters under a 7.5% AA bond yield. Before using them in another market, re-scale them to the current risk-free rate — keep the structure, do not port the numbers. **Passing all seven is only a first screen, not a buy reason** — next comes the margin of safety: divide the average earnings of the past 7–10 years by the purchase price and see how far the earnings yield clears the current high-grade bond yield (the book's baseline example is 9% versus 4%, roughly 5% a year, about half the purchase price accumulated over ten years); or use market price ÷ appraised value ≤ 2/3. If the cushion is not there, do not buy — and diversify across 10–30 names, because a margin on a single security without diversification is a false margin.
 
-### Example 2: the market fell 20% in a week — should I sell everything?
+### Example 2: the market is down more than 20% — should I sell everything?
 
 **User question**
 
-"The market fell 20% this week and my account is down 15%. Should I clear out and hide first?"
+"The market is down 25% from its high and my account is deep in the red. Should I go to cash and sit it out?"
 
 **How the skill reasons**
 
-- `mr-market-discipline-skill` reframes the quote first: a quote is a service you may decline, not an instruction; price fluctuation has only two meanings for an investor — a big drop offers a chance to buy, a big rise offers a chance to sell
-- Then the three questions for a decline, each answered in writing: (1) have the businesses changed (reports, operating data), or is only the quote falling? (2) is this decline inside the volatility range you accepted in advance? (3) has a pre-set rebalancing or averaging rule been triggered?
-- The volatility budget comes from the book: over the next 5 years, a portfolio rising more than 50% above its low, or falling more than one third below its high, is normal
-- If question 3 fires, hand over to `stock-bond-allocation-skill` and execute mechanically: buy back when the stock share has fallen to roughly 45%, recalibrating once every six months on a fixed date
-- If the user cannot form any valuation basis at all, the card stops itself: fall back to an index-based defensive route, and do not use "ignore Mr. Market" as an excuse to sit on a losing position
+- `mr-market-discipline-skill`: run the three down-market questions — did the businesses' fundamentals change, is the drop inside the range you accepted in advance, and did an agreed rebalancing or DCA rule trigger
+- `stock-bond-allocation-skill`: check the target ratio and the rebalancing trigger, turning "should I sell" into "is the ratio off plan"
+- `market-valuation-check-skill`: read only if the user still wants to judge "is it cheap enough", using the portfolio earnings yield against high-grade bond yields — never a price-level forecast
+- Stop rule: if the user asks "where is the bottom", switch to the discipline framework and give no price level
 
 **Sample answer**
 
-> Separate two things first: what is falling — the quote, or the business? "Clear out and hide" is itself market timing, and the whole premise of this book is that the future cannot be predicted — any method built on prediction eventually decays. So work the three questions, and put the answers on paper.
->
-> Question one: have the fundamentals changed? Have the reports and operating data deteriorated? If only the price is falling, that is not a reason to sell. Question two: is this 15% drawdown inside the volatility budget you wrote down in advance? The book's convention is that over the next 5 years a rise of more than 50% and a fall of more than one third are both normal — −15% has not reached that magnitude, so what it should trigger is the plan, not panic. Question three: has a rebalancing or averaging rule fired? If the stock share has already fallen to roughly 45%, the correct action is to buy back by the rule — that is a buy action, not a liquidation.
->
-> The only real reason to sell is that the quote is clearly above the valuation you recorded. And if you have no valuation record at all and cannot estimate business value, this card stops itself: fall back to an index-based defensive route, and do not turn "ignore Mr. Market" into an excuse for riding a loss.
+> Split "sell everything" into two questions: did the fundamentals change, and is the ratio off target. The first of the three down-market questions is — have the financials and operating data of the companies you hold deteriorated? If only the quote is falling, the book is direct: a price decline alone is not a reason to sell. Second, what volatility range did you accept in advance? The book asks investors to accept in advance that a portfolio may swing by roughly +50% / −33% within five years; −25% is still inside that line, so the plan should reassure you rather than trigger an action. The third question is the executable part: check your target stock/bond ratio. Suppose you set 50/50 and after the drop the stock share has fallen to about 45%, which trips the 5-percentage-point band — the correct action is **rebalancing in the opposite direction**: sell bonds, buy stocks back, and restore the ratio to within ±2 percentage points of target, not go to cash. Recalibrate on a fixed date about every six months; do not watch it daily. If you cannot execute that discipline, the original position was already beyond your tolerance, and the way out is back inside the 25%–75% band or into index funds — not ducking this time and repeating the mistake next time.
 
 ## How these skills were generated
 
 These skills were produced with the **[cangjie-skill](https://github.com/kangarooking/cangjie-skill)** RIA-TV++ pipeline, in six stages:
 
-1. **Whole-book comprehension (Adler analysis)** — apply Mortimer Adler's analytical reading method to the book: structure, interpretation, criticism, application
-2. **Parallel extraction** — several specialized extractors (frameworks, principles, cases, counter-examples, terminology) mine candidate methodology units from the source text
-3. **Triple verification** — every candidate must pass three checks: at least two independent in-book supports (cross-domain), the ability to answer questions the book never explicitly addresses (predictive power), and not being common sense (distinctiveness)
+1. **Whole-book comprehension (Adler analysis)** — apply Mortimer Adler's analytical reading method to the book: structure, interpretation, criticism, application; this first produces a list of 20 key tasks
+2. **Parallel extraction** — several specialized extractors (frameworks, principles, cases, counter-examples, terminology) mine candidate methodology units from the source text; 184 candidates in total here
+3. **Triple verification** — every candidate must pass three checks: at least two independent in-book supports (V1 source sufficiency), an executable input/output contract (V2 executability), and the ability to answer questions the book never explicitly addresses (V3 task gain); a five-criteria promotion gate is layered on top
 4. **RIA++ construction** — structure each unit along R (quotation) / I (restatement in own words) / A1 (in-book case) / A2 (future trigger scenario) / E (executable steps) / B (boundaries and blind spots)
 5. **Zettelkasten linking** — map dependencies, contrasts and combinations between cards, producing the capability index and routing table
-6. **Trigger and output testing** — write trigger cases and output evaluation scenarios for every card; failing cards go back for rework
+6. **Trigger and output testing** — design trigger blind tests and output evaluation scenarios for every card; failing cards go back for rework
 
-How the book's numbers were handled also shapes the result: 22.5, 15×, 1.5×, 2:1, the 25%–75% band and the 9%-against-4% gap are all parameters of the US rate environment Graham wrote in, and he himself called them "arbitrary". So every card **keeps the structure and re-standardizes the numbers** — multi-year average earnings as the denominator, a multi-criteria funnel, the P/E × P/B product ceiling and a portfolio earnings yield anchored to the current bond rate all transfer; the specific figures must be recomputed against the current risk-free rate and market size, and the convention used must be declared on every output.
+The 184 candidates merged into 16 capability units (7 promoted + 9 router), covering all 20 key tasks in BOOK_OVERVIEW. One deliberate downgrade is worth noting: `bubble-new-issue-immunity` passed all five promotion criteria, but to keep the entry list uncrowded it was kept in the router in this build.
 
 ## Repository layout
 
@@ -127,8 +117,13 @@ intelligent-investor-skill/
 ├── README.md                      ← Chinese version
 ├── README.en.md                   ← you are reading this
 ├── LICENSE                        ← MIT
+├── INDEX.md                       ← skill map: capability table + dependencies + loading order
 ├── BOOK_OVERVIEW.md               ← whole-book comprehension (Adler four-step, stage 0 output)
-├── verified.md                    ← triple-verification and promotion conclusions for the 16 units
+├── verified.md                    ← triple-verification conclusions for the 16 capability units
+├── bundle/                        ← source material (audit and recompilation only, not loaded at runtime)
+│   ├── verified.yaml              ← full definitions and promotion-gate records for the 16 capabilities
+│   ├── cards/                     ← the 16 capability cards in their original form
+│   └── book/                      ← overview.md + glossary.md
 ├── single/                        ← single-entry build
 │   └── intelligent-investor-skill/
 │       ├── SKILL.md               ← entry: triggers + routing table + loading rules
@@ -210,20 +205,19 @@ $dest = "$env:USERPROFILE\.agents\skills"
 
 ### How to verify the install
 
-Ask: "Does this price give me a margin of safety, and how many years of average earnings should I use?" If the agent enters the two-route calculation of `safety-margin-engine-skill` instead of giving generic "it looks cheap" commentary, the install works. With the single build it reads the entry first and then routes to a card; with the pack build the matching capability is hit directly.
+Ask: "Does this stock pass Graham's seven criteria, and does the purchase price carry a margin of safety?" If the agent enters the defensive screening and margin-of-safety calculation flow instead of giving generic value-investing commentary, the install works. With the single build it reads the entry first and then routes to a card; with the pack build the matching capability is hit directly.
 
 ## Sources
 
 - *The Intelligent Investor* by Benjamin Graham
-- Distilled from the whole book, producing 16 capability cards
 
 ## Notice
 
 This repository publishes distilled skills, indexes and rule quick references only. It contains no PDF, EPUB, OCR files, screenshots or full-book transcripts of the source book. Quotations that appear in the capability cards serve solely to attribute methodology and keep the material auditable.
 
-All numeric criteria in the book (22.5, 15×, 1.5×, 2:1, the 25%–75% band, the 9%-against-4% earnings-to-bond gap, etc.) are parameters of the US rate environment Graham wrote in; he himself called them "arbitrary", and the book provides no statistical backtesting. Recompute them against the current risk-free rate and market size before using them in another market, and declare the convention you use. Nothing in this repository is investment advice.
+All numeric criteria in the book (the seven statistical criteria, 22.5, 15×, 1.5×, the 25%–75% stock/bond band, the +50% / −33% volatility expectation, etc.) are experience-based parameters from the 1972 US market environment, described by the author himself as "arbitrary"; no statistical backtesting is provided. Before using them in another market, re-scale them to the current risk-free rate and market size and keep only the structure. Nothing in this repository is investment advice.
+
 
 ## License
 
 [MIT](./LICENSE)
-

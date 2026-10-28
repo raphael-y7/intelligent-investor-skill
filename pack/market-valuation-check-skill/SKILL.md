@@ -1,12 +1,12 @@
 ---
 name: market-valuation-check-skill
 description: |
-  当用户问"现在大盘贵不贵""指数能不能买""股市长期年化能有多少"时使用：以盈利收益率≥债券利率为主尺+三因子（实际增长+通胀+股息）回报锚+PE分级，输出高估/合理/低估判断书与股债比例倾向。不做点位预测；数据须用当期市场。
+  当用户问"现在大盘贵不贵""指数能不能买""股市长期年化能有多少""专家给的点位预测可信吗"时使用：以盈利收益率≥债券利率为主尺+三因子（实际增长+通胀+股息）回报锚+PE分级，输出高估/合理/低估判断书与股债比例倾向，并用可算指标替代点位预测。本身不做点位预测；数据须用当期市场。
 metadata:
   cangjie.generated-by: cangjie-tools v2.5.0
-  cangjie.capability-id: cap.intelligent-investor-skill.market-valuation-check-skill
-  cangjie.capability-revision: 1
-  cangjie.bundle-id: bundle.intelligent-investor-skill
+  cangjie.capability-id: cap.intelligent-investor-4e.market-valuation-check
+  cangjie.capability-revision: 2
+  cangjie.bundle-id: bundle.intelligent-investor-4e
   cangjie.source-title: 聪明的投资者（第4版，注疏点评版）
   cangjie.tags: market-valuation, expected-return, allocation-tilt
 ---

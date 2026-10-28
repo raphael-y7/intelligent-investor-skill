@@ -1,73 +1,73 @@
 {
   "generated_by": "cangjie-tools v2.5.0",
-  "bundle_id": "bundle.intelligent-investor-skill",
+  "bundle_id": "bundle.intelligent-investor-4e",
   "router_entrypoint": "intelligent-investor-skill-router",
   "entrypoint_count": 8,
   "capability_count": 16,
   "destinations": {
-    "cap.intelligent-investor-skill.investor-type-selfcheck-skill": {
+    "cap.intelligent-investor-4e.investor-type-selfcheck": {
       "promoted_to": "investor-type-selfcheck-skill",
       "router_view": "intelligent-investor-skill-router/references/capabilities/investor-type-selfcheck-skill.md"
     },
-    "cap.intelligent-investor-skill.stock-bond-allocation-skill": {
+    "cap.intelligent-investor-4e.stock-bond-allocation": {
       "promoted_to": "stock-bond-allocation-skill",
       "router_view": "intelligent-investor-skill-router/references/capabilities/stock-bond-allocation-skill.md"
     },
-    "cap.intelligent-investor-skill.market-valuation-check-skill": {
+    "cap.intelligent-investor-4e.market-valuation-check": {
       "promoted_to": "market-valuation-check-skill",
       "router_view": "intelligent-investor-skill-router/references/capabilities/market-valuation-check-skill.md"
     },
-    "cap.intelligent-investor-skill.mr-market-discipline-skill": {
+    "cap.intelligent-investor-4e.mr-market-discipline": {
       "promoted_to": "mr-market-discipline-skill",
       "router_view": "intelligent-investor-skill-router/references/capabilities/mr-market-discipline-skill.md"
     },
-    "cap.intelligent-investor-skill.defensive-stock-screen-skill": {
+    "cap.intelligent-investor-4e.defensive-stock-screen": {
       "promoted_to": "defensive-stock-screen-skill",
       "router_view": "intelligent-investor-skill-router/references/capabilities/defensive-stock-screen-skill.md"
     },
-    "cap.intelligent-investor-skill.safety-margin-engine-skill": {
+    "cap.intelligent-investor-4e.safety-margin-engine": {
       "promoted_to": "safety-margin-engine-skill",
       "router_view": "intelligent-investor-skill-router/references/capabilities/safety-margin-engine-skill.md"
     },
-    "cap.intelligent-investor-skill.eps-quality-check-skill": {
+    "cap.intelligent-investor-4e.eps-quality-check": {
       "promoted_to": "eps-quality-check-skill",
       "router_view": "intelligent-investor-skill-router/references/capabilities/eps-quality-check-skill.md"
     },
-    "cap.intelligent-investor-skill.dca-index-portfolio": {
+    "cap.intelligent-investor-4e.dca-index-portfolio": {
       "served_by": "intelligent-investor-skill-router",
-      "card": "intelligent-investor-skill-router/references/capabilities/dca-index-portfolio-skill.md"
+      "card": "intelligent-investor-skill-router/references/capabilities/dca-index-portfolio.md"
     },
-    "cap.intelligent-investor-skill.graham-valuation-formula": {
+    "cap.intelligent-investor-4e.graham-valuation-formula": {
       "served_by": "intelligent-investor-skill-router",
-      "card": "intelligent-investor-skill-router/references/capabilities/graham-valuation-formula-skill.md"
+      "card": "intelligent-investor-skill-router/references/capabilities/graham-valuation-formula.md"
     },
-    "cap.intelligent-investor-skill.enterprising-bargain-hunting": {
+    "cap.intelligent-investor-4e.enterprising-bargain-hunting": {
       "served_by": "intelligent-investor-skill-router",
-      "card": "intelligent-investor-skill-router/references/capabilities/enterprising-bargain-hunting-skill.md"
+      "card": "intelligent-investor-skill-router/references/capabilities/enterprising-bargain-hunting.md"
     },
-    "cap.intelligent-investor-skill.pairwise-company-comparison": {
+    "cap.intelligent-investor-4e.pairwise-company-comparison": {
       "served_by": "intelligent-investor-skill-router",
-      "card": "intelligent-investor-skill-router/references/capabilities/pairwise-company-comparison-skill.md"
+      "card": "intelligent-investor-skill-router/references/capabilities/pairwise-company-comparison.md"
     },
-    "cap.intelligent-investor-skill.bubble-new-issue-immunity": {
+    "cap.intelligent-investor-4e.bubble-new-issue-immunity": {
       "served_by": "intelligent-investor-skill-router",
-      "card": "intelligent-investor-skill-router/references/capabilities/bubble-new-issue-immunity-skill.md"
+      "card": "intelligent-investor-skill-router/references/capabilities/bubble-new-issue-immunity.md"
     },
-    "cap.intelligent-investor-skill.fund-selection": {
+    "cap.intelligent-investor-4e.fund-selection": {
       "served_by": "intelligent-investor-skill-router",
-      "card": "intelligent-investor-skill-router/references/capabilities/fund-selection-skill.md"
+      "card": "intelligent-investor-skill-router/references/capabilities/fund-selection.md"
     },
-    "cap.intelligent-investor-skill.convertible-warrant-skepticism": {
+    "cap.intelligent-investor-4e.convertible-warrant-skepticism": {
       "served_by": "intelligent-investor-skill-router",
-      "card": "intelligent-investor-skill-router/references/capabilities/convertible-warrant-skepticism-skill.md"
+      "card": "intelligent-investor-skill-router/references/capabilities/convertible-warrant-skepticism.md"
     },
-    "cap.intelligent-investor-skill.dividend-shareholder-policy": {
+    "cap.intelligent-investor-4e.dividend-shareholder-policy": {
       "served_by": "intelligent-investor-skill-router",
-      "card": "intelligent-investor-skill-router/references/capabilities/dividend-shareholder-policy-skill.md"
+      "card": "intelligent-investor-skill-router/references/capabilities/dividend-shareholder-policy.md"
     },
-    "cap.intelligent-investor-skill.advisor-diligence": {
+    "cap.intelligent-investor-4e.advisor-diligence": {
       "served_by": "intelligent-investor-skill-router",
-      "card": "intelligent-investor-skill-router/references/capabilities/advisor-diligence-skill.md"
+      "card": "intelligent-investor-skill-router/references/capabilities/advisor-diligence.md"
     }
   }
 }

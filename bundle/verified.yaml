@@ -1,0 +1,717 @@
+schema_version: 1
+bundle_id: bundle.intelligent-investor-4e
+book:
+  title: 聪明的投资者（第4版，注疏点评版）
+  author: 本杰明·格雷厄姆 著；贾森·兹威格、沃伦·巴菲特 注疏点评
+  source_pack: books/intelligent-investor-4e
+  baseline_tag: v1-first-distill
+entry:
+  name: intelligent-investor-skill
+  description: 《聪明的投资者（第4版注疏点评版）》方法论入口：先自测投资者类型（防御/积极/投机隔离），再沿配置→选股→估值→安全边际→波动纪律的路线执行格雷厄姆体系；含兹威格点评的现代行为纪律。用于股票投资分析辅助，输出决策规则而非预测。
+  core_principles:
+  - 投资操作以深入分析为基础，确保本金安全并获得适当回报；不满足即是投机
+  - 投资者只有防御型与积极型两类、无中间态；类型由知识、精力与性格决定
+  - 未来不可预测：凡以预测为基础的方法（择时、追趋势、程式方案）终将自我衰减
+  - 价格波动只有一个意义：大跌后是买入机会、大涨后是卖出机会；报价是可拒绝的服务
+  - 一切稳健投资归结为安全边际：盈利能力显著高于债券利率，或市价显著低于评估价值
+  - 用可计量的统计标准与会计警惕落实保护；分母一律多年平均利润
+  - 股债25%~75%区间对半开+再平衡+定投等机械纪律是对抗人性的工具
+  out_of_scope:
+  - 不预测市场点位、不荐股、不承诺收益
+  - 不含美国税制（附录2-3）、认股权证文化等制度性内容
+  - 书中具体数值（22.5/15倍/1.5倍等）为1972/2003年美国参数，仅保留结构，跨市场使用须按当期利率重标定
+  stop_conditions:
+  - 当用户要求预测涨跌或点位时，停止并转入市场先生/安全边际纪律框架
+  - 当缺少多年利润、利率等必要输入时，先索取数据，不得以单年数据代替
+  - 当用户身份不满足积极型预检（时间/精力/性格）时，只输出防御型路线
+router_entry:
+  name: intelligent-investor-skill-router
+  description: 《聪明的投资者》来源路由入口：覆盖定投指数、积极型三策略（低市盈率/net-net/套利）、格雷厄姆估值公式、成对公司比较、泡沫与新股免疫、基金挑选、可转债怀疑框架、股息与股东行动、投资顾问尽调等专项能力；当问题落在这九类具体场景时经本入口到达对应能力卡。
+promotion_budget: 8
+capabilities:
+- capability_id: cap.intelligent-investor-4e.investor-type-selfcheck
+  revision: 2
+  status: active
+  slug: investor-type-selfcheck-skill
+  title: 投资者类型自测与投机隔离
+  importance: critical
+  importance_rationale: 全书分流前提（任务task-01/05）；误判类型导致"半个经营者"的最差结局（第7章原文），下游所有路线选择都依赖本卡输出
+  one_liner: 先按时间/精力/性格把自己分到防御或积极通道；投机资金单账户≤10%
+  intents:
+  - 判断自己适合防御还是积极投资
+  - 划定投机额度
+  - 决定投入多少时间研究股票
+  keywords:
+  - 防御型
+  - 积极型
+  - 进取型
+  - 投机
+  - 投资者类型
+  - defensive investor
+  - enterprising investor
+  - speculation
+  - 赌资
+  also_read:
+  - stock-bond-allocation-skill
+  - defensive-stock-screen-skill
+  - enterprising-bargain-hunting
+  card: cards/investor-type-selfcheck-skill.md
+  frontmatter:
+    description: 当用户问"我该做价值投资还是定投指数""我算防御型还是积极型""想拿点钱投机怎么隔离"时使用；用第4章点评三问+环境八问判定类型，输出路线选择与受控投机规则（≤10%、独立账户）。不用于选股或估值本身；不预测市场。
+    tags:
+    - investor-type
+    - discipline
+    - asset-allocation
+  source_evidence:
+  - source_id: src-main-book
+    location: 导言；第1章及第1章点评；第4章点评；第7章
+  promotion:
+    destination: promoted
+    gate:
+      independent_intent: true
+      independent_contract: true
+      independent_run: true
+      independent_reuse: true
+      independent_eval: true
+    notes: 一切路线的入口判断，独立意图与契约明确，可独立评测
+- capability_id: cap.intelligent-investor-4e.stock-bond-allocation
+  revision: 2
+  status: active
+  slug: stock-bond-allocation-skill
+  title: 股债25%~75%配置与再平衡纪律
+  importance: critical
+  importance_rationale: 防御型第一决策（task-02/08）；避免越涨越买的核心机械纪律；否定"100−年龄"公式等流行错误
+  one_liner: 股债标准对半开，区间25%~75%，每6个月或比例越界5个百分点时再平衡
+  intents:
+  - 决定股债比例
+  - 建立再平衡规则
+  - 全仓股票前自查
+  - 抗通胀资产安排
+  keywords:
+  - 股债配比
+  - 再平衡
+  - 对半开
+  - 仓位
+  - asset allocation
+  - rebalancing
+  - 100减年龄
+  also_read:
+  - market-valuation-check-skill
+  - dca-index-portfolio
+  - investor-type-selfcheck-skill
+  card: cards/stock-bond-allocation-skill.md
+  frontmatter:
+    description: 当用户问"股债怎么配""涨多了要不要减仓/再平衡""要不要全仓股票""跌了要不要加仓"时使用：输出25%~75%区间配置+对半开基准+越界5个百分点（或涨至55%卖十一分之一）的再平衡触发+全仓股票六项前置条件自查。只管大类比例与机械再平衡，不做情绪安抚、不做行情判断、不做单只股票决策；比例数值须按当期无风险利率重标定。
+    tags:
+    - asset-allocation
+    - rebalancing
+    - discipline
+  source_evidence:
+  - source_id: src-main-book
+    location: 第4章及第4章点评；第2章及第2章点评（通胀）
+  promotion:
+    destination: promoted
+    gate:
+      independent_intent: true
+      independent_contract: true
+      independent_run: true
+      independent_reuse: true
+      independent_eval: true
+    notes: 配置决策可独立完成并可核验输出结构
+- capability_id: cap.intelligent-investor-4e.market-valuation-check
+  revision: 2
+  status: active
+  slug: market-valuation-check-skill
+  title: 市场整体估值检查
+  importance: high
+  importance_rationale: task-06；格雷厄姆1948-1972五次示范的核心工具（表3-3股债收益比），决定股债比例倾向与买入时机纪律
+  one_liner: 用组合盈利收益率vs高等级债息、三因子预期回报、PE分级给大盘定贵贱，再给仓位倾向
+  intents:
+  - 判断大盘整体贵不贵
+  - 现在能不能入场
+  - 估算股市长期预期回报
+  keywords:
+  - 大盘估值
+  - 市场估值
+  - 股债收益比
+  - 希勒市盈率
+  - 预期回报
+  - market valuation
+  - Shiller PE
+  also_read:
+  - stock-bond-allocation-skill
+  - mr-market-discipline-skill
+  card: cards/market-valuation-check-skill.md
+  frontmatter:
+    description: 当用户问"现在大盘贵不贵""指数能不能买""股市长期年化能有多少""专家给的点位预测可信吗"时使用：以盈利收益率≥债券利率为主尺+三因子（实际增长+通胀+股息）回报锚+PE分级，输出高估/合理/低估判断书与股债比例倾向，并用可算指标替代点位预测。本身不做点位预测；数据须用当期市场。
+    tags:
+    - market-valuation
+    - expected-return
+    - allocation-tilt
+  source_evidence:
+  - source_id: src-main-book
+    location: 第3章（表3-3）；第3章点评（三因子、希勒PE）；第14章（盈利收益率≥债息）
+  promotion:
+    destination: promoted
+    gate:
+      independent_intent: true
+      independent_contract: true
+      independent_run: true
+      independent_reuse: true
+      independent_eval: true
+    notes: 输入当期指数利润与债息即可独立完成并核验
+- capability_id: cap.intelligent-investor-4e.mr-market-discipline
+  revision: 2
+  status: active
+  slug: mr-market-discipline-skill
+  title: 市场先生波动应对纪律
+  importance: critical
+  importance_rationale: 巴菲特指定全书最重要两章之一（第8章，task-07）；A股散户最大痛点追涨杀跌的对症药；兹威格称寓言段为全书最重要一段话
+  one_liner: 报价是可拒绝的服务：不因涨买跌卖；暴跌=机会；组合波动预期先按+50%/−1/3备课
+  intents:
+  - 面对暴跌怎么办
+  - 涨了想追怎么办
+  - 克服追涨杀跌
+  - 拿不住股票
+  keywords:
+  - 市场先生
+  - 波动
+  - 追涨杀跌
+  - 择时
+  - Mr. Market
+  - timing
+  - volatility
+  also_read:
+  - safety-margin-engine-skill
+  - market-valuation-check-skill
+  card: cards/mr-market-discipline-skill.md
+  frontmatter:
+    description: 当用户大跌后恐慌想割肉、大涨后追高冲动、盯盘手痒、或问"要不要择时/该不该信买卖信号"时使用：输出涨时/跌时各一套三问检查表+择时vs估价二分+组合波动预期（比低点+50%、比高点−1/3）+五件可控之事清单。只管"当下的情绪与操作冲动"：不做股债比例调整（属配置卡）、不做大盘水位测算（属估值卡）、不做亏损回本数学（属安全边际卡）。不提供任何市场预测。
+    tags:
+    - behavior
+    - discipline
+    - mr-market
+  source_evidence:
+  - source_id: src-main-book
+    location: 第8章及第8章点评；第5章点评（投资所有者合约）
+  promotion:
+    destination: promoted
+    gate:
+      independent_intent: true
+      independent_contract: true
+      independent_run: true
+      independent_reuse: true
+      independent_eval: true
+    notes: 行为决策场景高频独立触发，输出可核验
+- capability_id: cap.intelligent-investor-4e.defensive-stock-screen
+  revision: 2
+  status: active
+  slug: defensive-stock-screen-skill
+  title: 防御型选股：四大规则+七项统计标准
+  importance: critical
+  importance_rationale: task-03；防御型选股核心交付物（1970年道指30只仅5只全过的可操作标准）；22.5乘积法则是格雷厄姆体系最著名的量化门槛
+  one_liner: 七项统计标准+市盈率×市净率≤22.5筛防御组合；分母一律多年平均利润
+  intents:
+  - 按防御标准筛选股票
+  - 检查某股是否符合格雷厄姆标准
+  - 建立稳健组合
+  keywords:
+  - 防御型选股
+  - 七项标准
+  - 市盈率
+  - 市净率
+  - '22.5'
+  - 流动比率
+  - defensive screen
+  also_read:
+  - eps-quality-check-skill
+  - graham-valuation-formula
+  - safety-margin-engine-skill
+  card: cards/defensive-stock-screen-skill.md
+  frontmatter:
+    description: 当用户要"按格雷厄姆标准选股""检查这只票能不能进防御组合"时使用：四大规则（10~30只/大型知名财务稳健/7年平均PE≤25且12个月≤20/持续股息）+七项统计标准+乘积≤22.5逐项打分。所有数值为1972年美国参数，跨市场须按当期利率重标定结构。
+    tags:
+    - stock-screening
+    - quantitative
+    - defensive
+  source_evidence:
+  - source_id: src-main-book
+    location: 第5章四规则；第14章及表14-1~14-3；第14章点评
+  promotion:
+    destination: promoted
+    gate:
+      independent_intent: true
+      independent_contract: true
+      independent_run: true
+      independent_reuse: true
+      independent_eval: true
+    notes: 给定财务数据即可独立跑通筛选并核对通过项
+- capability_id: cap.intelligent-investor-4e.safety-margin-engine
+  revision: 2
+  status: active
+  slug: safety-margin-engine-skill
+  title: 安全边际测算与决策（含行为自检）
+  importance: critical
+  importance_rationale: 全书中心思想落地（task-11/19）；两条测算口径+镜子测试覆盖"值不值这个价"与"错了怎么办"两大高频问题
+  one_liner: 盈利能力−债券利率、评估价值−市价（≤2/3）两条口径；缓冲不够就不买，且必须配分散化
+  intents:
+  - 判断买价有没有保护
+  - 测算安全边际
+  - 买入前风险自检
+  - 亏了大半怎么办
+  keywords:
+  - 安全边际
+  - margin of safety
+  - 买贵了
+  - 有没有保护
+  - 错了怎么办
+  - 回本年数
+  also_read:
+  - graham-valuation-formula
+  - eps-quality-check-skill
+  - mr-market-discipline-skill
+  card: cards/safety-margin-engine-skill.md
+  frontmatter:
+    description: 当用户问"这个价格买入有没有保护""该等多少折扣""重仓前自检""亏了这么多还要几年才能回本"时使用：按盈利能力−债券利率与市价/评估价值≤2/3双口径测算，附分散化要求、镜子测试问卷（信心侧+遗憾侧）与亏损回本年数计算。不做精确估值；分子必须是多年平均利润。
+    tags:
+    - margin-of-safety
+    - decision
+    - risk-check
+  source_evidence:
+  - source_id: src-main-book
+    location: 第20章及第20章点评；附录1（巴菲特桥梁比喻）
+  promotion:
+    destination: promoted
+    gate:
+      independent_intent: true
+      independent_contract: true
+      independent_run: true
+      independent_reuse: true
+      independent_eval: true
+    notes: 核心决策能力，输入输出契约清晰可独立评测
+- capability_id: cap.intelligent-investor-4e.eps-quality-check
+  revision: 2
+  status: active
+  slug: eps-quality-check-skill
+  title: 每股收益辨伪与财务红旗
+  importance: high
+  importance_rationale: task-12/14；第17章四大灾难公司的共同入口；"避开一次灾难胜过十次正确"，是筛选与估值的前置质检
+  one_liner: EPS先过三重检验（单年→7年平均→完全稀释），再对红旗清单（并购成瘾/OPM/客户集中/利息保障不足）逐项打勾
+  intents:
+  - 识别利润注水
+  - 排查财务红旗
+  - 还原真实每股收益
+  - 从后往前读财报
+  keywords:
+  - 每股收益
+  - 特殊费用
+  - 稀释
+  - 红旗
+  - 大浴池
+  - pro forma
+  - earnings quality
+  - red flags
+  also_read:
+  - defensive-stock-screen-skill
+  - safety-margin-engine-skill
+  - pairwise-company-comparison
+  card: cards/eps-quality-check-skill.md
+  frontmatter:
+    description: 当用户拿到一份财报要判断利润真假、或持仓公司有并购/一次性费用/期权新闻时使用：输出利润质量核查报告（EPS三重还原+增长率口径+红旗清单打勾表）。需财报数据，缺失先索取；不替代审计意见。
+    tags:
+    - earnings-quality
+    - accounting
+    - red-flags
+  source_evidence:
+  - source_id: src-main-book
+    location: 第12章及第12章点评；第17章四案例；第11章点评
+  promotion:
+    destination: promoted
+    gate:
+      independent_intent: true
+      independent_contract: true
+      independent_run: true
+      independent_reuse: true
+      independent_eval: true
+    notes: 独立质检场景明确，可用美国铝业四重利润等书中例题复算评测
+- capability_id: cap.intelligent-investor-4e.dca-index-portfolio
+  revision: 1
+  status: active
+  slug: dca-index-portfolio
+  title: 定投+指数基金自动组合
+  importance: high
+  importance_rationale: task-04；免择时的可行替代（Ibbotson实证）；格雷厄姆晚年本人转向推荐指数基金（第9章点评）
+  one_liner: 固定金额定期买低成本宽基指数；费用优先核查，然后"我不知道，也不在乎"
+  intents:
+  - 建立定投计划
+  - 选择指数基金
+  - 不想花时间研究股票怎么投
+  keywords:
+  - 定投
+  - 美元成本平均
+  - 指数基金
+  - 费用
+  - dollar-cost averaging
+  - index fund
+  also_read:
+  - fund-selection
+  - stock-bond-allocation-skill
+  card: cards/dca-index-portfolio-skill.md
+  frontmatter:
+    description: 当用户说"没时间研究股票""想定投""选哪只指数基金"时使用：输出定投方案（标的/金额/频率）+费用核查清单+自动导航心态框架。不承诺正收益；定投只是避免错误时点重仓。费率数值为2003年美国口径，须按当期重标定。
+    tags:
+    - dca
+    - index-fund
+    - passive
+  source_evidence:
+  - source_id: src-main-book
+    location: 第5章及第5章点评；第9章点评
+  promotion:
+    destination: router
+    gate:
+      independent_intent: true
+      independent_contract: true
+      independent_run: true
+      independent_reuse: false
+      independent_eval: true
+    notes: 与基金挑选、股债配置高度协同，独立入口价值弱于晋级七卡；经路由入口到达
+- capability_id: cap.intelligent-investor-4e.graham-valuation-formula
+  revision: 1
+  status: active
+  slug: graham-valuation-formula
+  title: 格雷厄姆估值：简化公式+两步评估+债券保障倍数
+  importance: high
+  importance_rationale: task-11/13；安全边际卡的价值输入源；表11-1保障倍数是债券/可转债安全的量化入口
+  one_liner: 价值=当期（正常）利润×(8.5+两倍预期年增长率)当防御性锚；债券按多年利息保障倍数（工业7/5、公用4/3）
+  intents:
+  - 用格雷厄姆公式估值
+  - 评估债券安全
+  - 计算利息保障倍数
+  - 两步评估法
+  keywords:
+  - 格雷厄姆公式
+  - 8.5+2g
+  - 内在价值
+  - 利息保障倍数
+  - valuation
+  - coverage ratio
+  also_read:
+  - safety-margin-engine-skill
+  - market-valuation-check-skill
+  - defensive-stock-screen-skill
+  card: cards/graham-valuation-formula-skill.md
+  frontmatter:
+    description: 当用户要"算内在价值""这条债券/可转债安全吗"时使用：简化公式（正常利润×(8.5+2G)，7~10年预期增长率，保守取值）+两步评估+表11-1保障倍数（多年平均或最差年份口径）。公式是防御性锚而非精确估值；出现微积分式复杂模型即投机信号。
+    tags:
+    - valuation
+    - formula
+    - bond-safety
+  source_evidence:
+  - source_id: src-main-book
+    location: 第11章（表11-1~11-5）；第12章
+  promotion:
+    destination: router
+    gate:
+      independent_intent: true
+      independent_contract: true
+      independent_run: true
+      independent_reuse: false
+      independent_eval: true
+    notes: 主要作为安全边际卡的上游计算工具，独立复用面较窄；经路由入口到达
+- capability_id: cap.intelligent-investor-4e.enterprising-bargain-hunting
+  revision: 1
+  status: active
+  slug: enterprising-bargain-hunting
+  title: 积极型三策略（低市盈率大公司/廉价net-net/特殊情况）
+  importance: high
+  importance_rationale: task-09/10；格雷厄姆-纽曼30年核心业务的方法论（53年低市盈率检验、net-net两年+75%）；须与资格预检配套防误用
+  one_liner: 低市盈率大公司、低于净营运资本的廉价股、特殊情况三路；先过积极型资格预检，纸面练兵一年，分散持有
+  intents:
+  - 做积极型投资怎么选股
+  - 找廉价证券
+  - net-net筛选
+  - 低市盈率策略
+  keywords:
+  - 积极型
+  - 低市盈率
+  - 廉价证券
+  - 净营运资本
+  - net-net
+  - 套利
+  - bargain
+  - special situations
+  also_read:
+  - investor-type-selfcheck-skill
+  - safety-margin-engine-skill
+  - pairwise-company-comparison
+  card: cards/enterprising-bargain-hunting-skill.md
+  frontmatter:
+    description: 当自测为积极型的用户问"怎么找便宜股""低市盈率怎么筛""什么是net-net"时使用：三策略各自筛选流程+纪律（套利双门槛20%/80%、分散≥100只、纸面练兵1年、个股≤10%）。第0步为资格预检判停；net-net在A股近乎绝迹时转次优替代。
+    tags:
+    - active-strategy
+    - bargain
+    - net-net
+  source_evidence:
+  - source_id: src-main-book
+    location: 第7章（表7-2/7-4）；第15章（表15-1/15-2、格雷厄姆-纽曼）
+  promotion:
+    destination: router
+    gate:
+      independent_intent: true
+      independent_contract: true
+      independent_run: true
+      independent_reuse: false
+      independent_eval: true
+    notes: 仅服务少数积极型用户且依赖类型自检卡前置；经路由入口到达
+- capability_id: cap.intelligent-investor-4e.pairwise-company-comparison
+  revision: 1
+  status: active
+  slug: pairwise-company-comparison
+  title: 成对公司比较分析法
+  importance: medium
+  importance_rationale: 第13/18章全书方法论密度最高的分析模板（task支撑03/09）；兹威格点评延续该法做现代对照
+  one_liner: 同业成对比较六维度（盈利/稳定/成长/财务/股息/价格史），回答"质量差是否值价差"
+  intents:
+  - 两家同业公司怎么选
+  - 对比分析两家公司
+  - 质量与价格权衡
+  keywords:
+  - 公司比较
+  - 成对分析
+  - 同业对比
+  - comparative analysis
+  also_read:
+  - eps-quality-check-skill
+  - enterprising-bargain-hunting
+  - defensive-stock-screen-skill
+  card: cards/pairwise-company-comparison-skill.md
+  frontmatter:
+    description: 当用户在两家同业公司间纠结（如"格力美的选谁""思科和Sysco"）时使用：六维度成对比较表+三个经典结论模式（低市盈率胜出/高乘数成长风险/故事股检验）。是分析辅助而非选股器；模式可迁移、数值不可照搬。
+    tags:
+    - comparison
+    - analysis-template
+  source_evidence:
+  - source_id: src-main-book
+    location: 第13章（表13-1/13-2）；第18章（表18-1~18-10）；第18章点评
+  promotion:
+    destination: router
+    gate:
+      independent_intent: true
+      independent_contract: true
+      independent_run: true
+      independent_reuse: false
+      independent_eval: true
+    notes: 分析模板型能力，作为选股/积极策略的辅助经路由到达
+- capability_id: cap.intelligent-investor-4e.bubble-new-issue-immunity
+  revision: 1
+  status: active
+  slug: bubble-new-issue-immunity
+  title: 牛市泡沫症状与新股免疫
+  importance: high
+  importance_rationale: task-15；牛市后期公众亏损的最大来源；新股生命周期规律+方法自我衰减定律是全书最可迁移的元规律
+  one_liner: 牛市后期信号逐条对照（新股泛滥/质劣量增/破发）；新股热门股默认免疫，方法"只要管用"即警惕
+  intents:
+  - 判断是不是泡沫顶部
+  - 打新股值不值
+  - 热门股能不能追
+  - 有效方法失灵了怎么办
+  keywords:
+  - 泡沫
+  - 新股
+  - IPO
+  - 热门股
+  - 一月效应
+  - 策略失效
+  - bubble
+  - new issues
+  also_read:
+  - mr-market-discipline-skill
+  - market-valuation-check-skill
+  card: cards/bubble-new-issue-immunity-skill.md
+  frontmatter:
+    description: 当用户问"现在是不是泡沫""这只新股能不能打""之前管用的策略怎么不灵了"时使用：牛市特征+新股发行生命周期检查表+方法自我衰减定律核查。输出免疫规则而非参与建议；与市场先生纪律卡配合使用。
+    tags:
+    - bubble
+    - new-issues
+    - strategy-decay
+  source_evidence:
+  - source_id: src-main-book
+    location: 第6章及第6章点评；第8章（公式化操作的失败）；附录7
+  promotion:
+    destination: router
+    gate:
+      independent_intent: true
+      independent_contract: true
+      independent_run: true
+      independent_reuse: true
+      independent_eval: true
+    notes: 意图独立性强，但与既有泡沫识别类跨书能力可组合，且用户已有bubble-mania技能；本版先经路由入口到达，避免入口拥挤
+- capability_id: cap.intelligent-investor-4e.fund-selection
+  revision: 1
+  status: active
+  slug: fund-selection
+  title: 基金挑选与卖出信号
+  importance: high
+  importance_rationale: task-16；多数人不适合选股，基金是主通道；费用是最可预测变量（费用→风险→业绩倒序是兹威格最重要的实务贡献之一）
+  one_liner: 费用→风险→业绩倒序审查；好基金四特征、卖出四信号、3年亏损准备
+  intents:
+  - 怎么选基金
+  - 基金费率高不高
+  - 什么时候卖基金
+  - 指数还是主动
+  keywords:
+  - 基金
+  - 费用率
+  - 封闭式折价
+  - 指数基金
+  - fund selection
+  - expense ratio
+  also_read:
+  - dca-index-portfolio
+  - investor-type-selfcheck-skill
+  card: cards/fund-selection-skill.md
+  frontmatter:
+    description: 当用户问"这只基金能不能买""经理换人了怎么办""主动基金值得吗"时使用：反序审查（费用→风险→业绩）+好基金四特征+卖出四信号。封闭式折价规则适用面窄；费率上限为2003年美国数值须重标定。
+    tags:
+    - fund
+    - fees
+    - discipline
+  source_evidence:
+  - source_id: src-main-book
+    location: 第9章（表9-1~9-5）；第9章点评
+  promotion:
+    destination: router
+    gate:
+      independent_intent: true
+      independent_contract: true
+      independent_run: true
+      independent_reuse: false
+      independent_eval: true
+    notes: 用户主战场是个股分析；基金场景频率较低且与定投卡协同，经路由入口到达
+- capability_id: cap.intelligent-investor-4e.convertible-warrant-skepticism
+  revision: 1
+  status: active
+  slug: convertible-warrant-skepticism
+  title: 可转债与权证怀疑框架
+  importance: medium
+  importance_rationale: task-20；A股可转债是重要品类，格雷厄姆"两头最优是幻觉"框架+稀释计算高度可用
+  one_liner: 转换权必有让步；牛市后期集中发行是警告；权证/期权价值须并入真实市价；永不转换
+  intents:
+  - 可转债能不能买
+  - 转换溢价高不高
+  - 权证稀释怎么算
+  - 双低策略怎么看
+  keywords:
+  - 可转债
+  - 转换溢价
+  - 认股权证
+  - 稀释
+  - convertible
+  - warrant
+  - dilution
+  also_read:
+  - eps-quality-check-skill
+  - safety-margin-engine-skill
+  card: cards/convertible-warrant-skepticism-skill.md
+  frontmatter:
+    description: 当用户问"这只可转债能不能买""要不要转股""附带权证的公司怎么看"时使用：发行时点/转换溢价/回收年限/条款陷阱检查表+稀释修正计算。书写于1972年美国认股权证文化，A股条款（强赎/下修/T+0）须结合适用。
+    tags:
+    - convertible-bond
+    - warrant
+    - skepticism
+  source_evidence:
+  - source_id: src-main-book
+    location: 第16章（表16-1~16-4）及第16章点评；第8章
+  promotion:
+    destination: router
+    gate:
+      independent_intent: true
+      independent_contract: true
+      independent_run: true
+      independent_reuse: false
+      independent_eval: true
+    notes: 品类较窄但A股可用；经路由入口到达
+- capability_id: cap.intelligent-investor-4e.dividend-shareholder-policy
+  revision: 1
+  status: active
+  slug: dividend-shareholder-policy
+  title: 股息政策与股东行动
+  importance: medium
+  importance_rationale: task-18；"公司的现金属于股东"；股息两原则与期权/回购监督是治理视角的稀缺补充
+  one_liner: 支付率约2/3，或证明留存带来满意的EPS增长；盯期权计划与回购价格
+  intents:
+  - 公司不分红好不好
+  - 股息政策怎么评价
+  - 高送转怎么看
+  - 股东大会投票
+  keywords:
+  - 股息
+  - 分红
+  - 支付率
+  - 股票期权
+  - 回购
+  - dividend
+  - payout ratio
+  also_read:
+  - eps-quality-check-skill
+  - pairwise-company-comparison
+  card: cards/dividend-shareholder-policy-skill.md
+  frontmatter:
+    description: 当用户问"这家公司分红小气吗""留存利润是不是被浪费""高送转是利好吗"时使用：股息两原则判断（支付率≈2/3或留存增值证明）+股东监督清单（期权/回购价格/代理材料）。A股以公告与年报替代美股10-K语境。
+    tags:
+    - dividend
+    - governance
+    - shareholder
+  source_evidence:
+  - source_id: src-main-book
+    location: 第19章及第19章点评
+  promotion:
+    destination: router
+    gate:
+      independent_intent: true
+      independent_contract: true
+      independent_run: true
+      independent_reuse: false
+      independent_eval: true
+    notes: 场景频率中等，经路由入口到达
+- capability_id: cap.intelligent-investor-4e.advisor-diligence
+  revision: 1
+  status: active
+  slug: advisor-diligence
+  title: 投资顾问尽调
+  importance: low
+  importance_rationale: task-17；防金融骗局与利益冲突识别；A股荐股群/直播间形态可直接套用其利益冲突检验
+  one_liner: 先判定是否真需要顾问；再按利益冲突清单（收费结构/托管/承诺收益）尽调
+  intents:
+  - 要不要请投资顾问
+  - 怎么辨别理财顾问骗局
+  - 荐股群可信吗
+  keywords:
+  - 投资顾问
+  - 尽调
+  - 荐股
+  - 理财经理
+  - advisor
+  - due diligence
+  also_read:
+  - investor-type-selfcheck-skill
+  - fund-selection
+  card: cards/advisor-diligence-skill.md
+  frontmatter:
+    description: 当用户问"要不要找投顾""这个荐股老师可信吗""怎么查理财顾问资质"时使用：顾问需求判定+尽调问卷+危险信号清单（保证收益/内部消息/限时催促）。语境为美国1972/2003，利益冲突检验框架可迁移A股形态。
+    tags:
+    - advisor
+    - fraud-prevention
+    - due-diligence
+  source_evidence:
+  - source_id: src-main-book
+    location: 第10章及第10章点评
+  promotion:
+    destination: router
+    gate:
+      independent_intent: true
+      independent_contract: true
+      independent_run: true
+      independent_reuse: false
+      independent_eval: true
+    notes: 低频场景；经路由入口到达

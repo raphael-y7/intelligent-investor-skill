@@ -4,9 +4,9 @@ description: |
   当用户问"我该做价值投资还是定投指数""我算防御型还是积极型""想拿点钱投机怎么隔离"时使用；用第4章点评三问+环境八问判定类型，输出路线选择与受控投机规则（≤10%、独立账户）。不用于选股或估值本身；不预测市场。
 metadata:
   cangjie.generated-by: cangjie-tools v2.5.0
-  cangjie.capability-id: cap.intelligent-investor-skill.investor-type-selfcheck-skill
-  cangjie.capability-revision: 1
-  cangjie.bundle-id: bundle.intelligent-investor-skill
+  cangjie.capability-id: cap.intelligent-investor-4e.investor-type-selfcheck
+  cangjie.capability-revision: 2
+  cangjie.bundle-id: bundle.intelligent-investor-4e
   cangjie.source-title: 聪明的投资者（第4版，注疏点评版）
   cangjie.tags: investor-type, discipline, asset-allocation
 ---
