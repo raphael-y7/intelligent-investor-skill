@@ -1,0 +1,73 @@
+{
+  "generated_by": "cangjie-tools v2.5.0",
+  "bundle_id": "bundle.intelligent-investor-skill",
+  "router_entrypoint": "intelligent-investor-skill-router",
+  "entrypoint_count": 8,
+  "capability_count": 16,
+  "destinations": {
+    "cap.intelligent-investor-skill.investor-type-selfcheck-skill": {
+      "promoted_to": "investor-type-selfcheck-skill",
+      "router_view": "intelligent-investor-skill-router/references/capabilities/investor-type-selfcheck-skill.md"
+    },
+    "cap.intelligent-investor-skill.stock-bond-allocation-skill": {
+      "promoted_to": "stock-bond-allocation-skill",
+      "router_view": "intelligent-investor-skill-router/references/capabilities/stock-bond-allocation-skill.md"
+    },
+    "cap.intelligent-investor-skill.market-valuation-check-skill": {
+      "promoted_to": "market-valuation-check-skill",
+      "router_view": "intelligent-investor-skill-router/references/capabilities/market-valuation-check-skill.md"
+    },
+    "cap.intelligent-investor-skill.mr-market-discipline-skill": {
+      "promoted_to": "mr-market-discipline-skill",
+      "router_view": "intelligent-investor-skill-router/references/capabilities/mr-market-discipline-skill.md"
+    },
+    "cap.intelligent-investor-skill.defensive-stock-screen-skill": {
+      "promoted_to": "defensive-stock-screen-skill",
+      "router_view": "intelligent-investor-skill-router/references/capabilities/defensive-stock-screen-skill.md"
+    },
+    "cap.intelligent-investor-skill.safety-margin-engine-skill": {
+      "promoted_to": "safety-margin-engine-skill",
+      "router_view": "intelligent-investor-skill-router/references/capabilities/safety-margin-engine-skill.md"
+    },
+    "cap.intelligent-investor-skill.eps-quality-check-skill": {
+      "promoted_to": "eps-quality-check-skill",
+      "router_view": "intelligent-investor-skill-router/references/capabilities/eps-quality-check-skill.md"
+    },
+    "cap.intelligent-investor-skill.dca-index-portfolio": {
+      "served_by": "intelligent-investor-skill-router",
+      "card": "intelligent-investor-skill-router/references/capabilities/dca-index-portfolio-skill.md"
+    },
+    "cap.intelligent-investor-skill.graham-valuation-formula": {
+      "served_by": "intelligent-investor-skill-router",
+      "card": "intelligent-investor-skill-router/references/capabilities/graham-valuation-formula-skill.md"
+    },
+    "cap.intelligent-investor-skill.enterprising-bargain-hunting": {
+      "served_by": "intelligent-investor-skill-router",
+      "card": "intelligent-investor-skill-router/references/capabilities/enterprising-bargain-hunting-skill.md"
+    },
+    "cap.intelligent-investor-skill.pairwise-company-comparison": {
+      "served_by": "intelligent-investor-skill-router",
+      "card": "intelligent-investor-skill-router/references/capabilities/pairwise-company-comparison-skill.md"
+    },
+    "cap.intelligent-investor-skill.bubble-new-issue-immunity": {
+      "served_by": "intelligent-investor-skill-router",
+      "card": "intelligent-investor-skill-router/references/capabilities/bubble-new-issue-immunity-skill.md"
+    },
+    "cap.intelligent-investor-skill.fund-selection": {
+      "served_by": "intelligent-investor-skill-router",
+      "card": "intelligent-investor-skill-router/references/capabilities/fund-selection-skill.md"
+    },
+    "cap.intelligent-investor-skill.convertible-warrant-skepticism": {
+      "served_by": "intelligent-investor-skill-router",
+      "card": "intelligent-investor-skill-router/references/capabilities/convertible-warrant-skepticism-skill.md"
+    },
+    "cap.intelligent-investor-skill.dividend-shareholder-policy": {
+      "served_by": "intelligent-investor-skill-router",
+      "card": "intelligent-investor-skill-router/references/capabilities/dividend-shareholder-policy-skill.md"
+    },
+    "cap.intelligent-investor-skill.advisor-diligence": {
+      "served_by": "intelligent-investor-skill-router",
+      "card": "intelligent-investor-skill-router/references/capabilities/advisor-diligence-skill.md"
+    }
+  }
+}
