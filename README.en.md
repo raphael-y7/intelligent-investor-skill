@@ -225,4 +225,5 @@ All numeric criteria in the book (22.5, 15×, 1.5×, 2:1, the 25%–75% band, th
 
 ## License
 
-[MIT](https://opensource.org/licenses/MIT)
+[MIT](./LICENSE)
+
